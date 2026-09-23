@@ -27,10 +27,9 @@
   var root = document.documentElement;
   var btn = document.querySelector('.theme-btn');
   if (!btn) return;
+  // dark is the default; only an explicit choice makes it light
   function effective() {
-    var set = root.getAttribute('data-theme');
-    if (set === 'dark' || set === 'light') return set;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   }
   btn.addEventListener('click', function () {
     var next = effective() === 'dark' ? 'light' : 'dark';

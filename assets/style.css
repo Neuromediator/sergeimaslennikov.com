@@ -1,14 +1,14 @@
 /* ───────────────────────── tokens ───────────────────────── */
 :root{
-  --bg:        #E4E1D9;
-  --bg-raised: #EFEDE7;
-  --fg:        #191B1C;
-  --fg-muted:  #5E5C55;
-  --fg-faint:  #918D83;
-  --rule:      rgba(25,27,28,.16);
-  --rule-soft: rgba(25,27,28,.09);
-  --accent:    #5F6B39;
-  --accent-ink:#F2EDE2;
+  --bg:        #131415;
+  --bg-raised: #1B1D1E;
+  --fg:        #E7E3D9;
+  --fg-muted:  #A19C92;
+  --fg-faint:  #7C776E;
+  --rule:      rgba(231,227,217,.17);
+  --rule-soft: rgba(231,227,217,.09);
+  --accent:    #AEBB82;
+  --accent-ink:#141517;
 
   /* fixed dark bands — identical in both themes */
   --ink:       #141517;
@@ -27,29 +27,16 @@
   --f-body: "Newsreader", Georgia, "Times New Roman", serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:        #131415;
-    --bg-raised: #1B1D1E;
-    --fg:        #E7E3D9;
-    --fg-muted:  #A19C92;
-    --fg-faint:  #7C776E;
-    --rule:      rgba(231,227,217,.17);
-    --rule-soft: rgba(231,227,217,.09);
-    --accent:    #AEBB82;
-    --accent-ink:#141517;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:        #131415;
-  --bg-raised: #1B1D1E;
-  --fg:        #E7E3D9;
-  --fg-muted:  #A19C92;
-  --fg-faint:  #7C776E;
-  --rule:      rgba(231,227,217,.17);
-  --rule-soft: rgba(231,227,217,.09);
-  --accent:    #AEBB82;
-  --accent-ink:#141517;
+:root[data-theme="light"]{
+  --bg:        #E4E1D9;
+  --bg-raised: #EFEDE7;
+  --fg:        #191B1C;
+  --fg-muted:  #5E5C55;
+  --fg-faint:  #918D83;
+  --rule:      rgba(25,27,28,.16);
+  --rule-soft: rgba(25,27,28,.09);
+  --accent:    #5F6B39;
+  --accent-ink:#F2EDE2;
 }
 
 /* ───────────────────────── base ───────────────────────── */
@@ -479,15 +466,10 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   stroke-linecap:round;stroke-linejoin:round;
 }
 /* show the icon of the theme you would switch to -- same rule shape as the tokens */
-.theme-btn .sun{display:none}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .theme-btn .moon{display:none}
-  :root:not([data-theme="light"]) .theme-btn .sun{display:block}
-}
-:root[data-theme="dark"] .theme-btn .moon{display:none}
-:root[data-theme="dark"] .theme-btn .sun{display:block}
-:root[data-theme="light"] .theme-btn .moon{display:block}
+.theme-btn .moon{display:none}
+.theme-btn .sun{display:block}
 :root[data-theme="light"] .theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .moon{display:block}
 
 @media (max-width:620px){
   /* Two rows instead of a sideways scroller: every section stays one tap away.
