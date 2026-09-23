@@ -26,7 +26,8 @@
     "cta": "Open the twin"
   },
   "avatar": {
-    "nav_label": "Avatar · live",
+    "nav_label": "Avatar",
+    "nav_live": "live",
     "title": "Digital twin — Sergei Maslennikov",
     "description": "Ask Sergei Maslennikov's digital twin about his work, projects and background. It answers in English, Estonian or Russian.",
     "frame_title": "Sergei Maslennikov's digital twin",

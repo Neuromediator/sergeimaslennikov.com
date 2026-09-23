@@ -459,6 +459,9 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 @media (max-width:620px){
   .nav-links{gap:20px}
   .lang{gap:10px;padding-left:12px}
+  /* the bar is narrow: the pulsing dot carries "live", the word goes */
+  .nav-extra{padding-left:12px}
+  .nav-extra .live{display:none}
 }
 
 /* ───────────────────────── digital twin ───────────────────────── */
@@ -533,6 +536,10 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   padding-block:12px;
 }
 .avatar-foot a{color:var(--moss);text-decoration:none;border-bottom:1px solid transparent}
+@media (max-width:620px){
+  /* keep the strip to one line: the link alone says enough */
+  .avatar-foot .note{display:none}
+}
 .avatar-foot a:hover{border-bottom-color:var(--moss)}
 
 @media (max-width:940px){

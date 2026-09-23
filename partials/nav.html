@@ -5,7 +5,7 @@
       {{/nav}}
     </div>
     <div class="nav-extra">
-      <a href="/avatar/"{{&avatar_current}}><span class="dot"></span>{{avatar.nav_label}}</a>
+      <a href="/avatar/"{{&avatar_current}}><span class="dot"></span>{{avatar.nav_label}}<span class="live"> · {{avatar.nav_live}}</span></a>
     </div>
     {{#langs}}<div class="lang" role="group" aria-label="{{labels.language}}">
       {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
