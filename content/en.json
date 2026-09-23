@@ -26,7 +26,7 @@
     "cta": "Open the twin"
   },
   "avatar": {
-    "nav_label": "Avatar",
+    "nav_label": "Avatar · live",
     "title": "Digital twin — Sergei Maslennikov",
     "description": "Ask Sergei Maslennikov's digital twin about his work, projects and background. It answers in English, Estonian or Russian.",
     "frame_title": "Sergei Maslennikov's digital twin",
@@ -104,11 +104,7 @@
         "role": "LLM Engineer · AI Practitioner",
         "body": "Building pet projects and applied AI systems — RAG pipelines, agent workflows, LLM-powered products."
       }
-    ],
-    "ask": {
-      "label": "Ask the twin why I changed direction",
-      "href": "/avatar/?q=9"
-    }
+    ]
   },
   "projects": {
     "title": "Projects",

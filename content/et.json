@@ -26,7 +26,7 @@
     "cta": "Ava kaksik"
   },
   "avatar": {
-    "nav_label": "Avatar",
+    "nav_label": "Avatar · live",
     "title": "Digitaalne kaksik — Sergei Maslennikov",
     "description": "Küsi Sergei Maslennikovi digitaalselt kaksikult tema töö, projektide ja tausta kohta. Ta vastab eesti, inglise või vene keeles.",
     "frame_title": "Sergei Maslennikovi digitaalne kaksik",
@@ -104,11 +104,7 @@
         "role": "LLM Engineer · AI Practitioner",
         "body": "Ehitan harrastusprojekte ja rakenduslikke AI-süsteeme — RAG-konveierid, agentide töövood, LLM-põhised tooted."
       }
-    ],
-    "ask": {
-      "label": "Küsi kaksikult, miks ma suunda muutsin",
-      "href": "/avatar/?q=9"
-    }
+    ]
   },
   "projects": {
     "title": "Projektid",

@@ -435,6 +435,10 @@ h2{
   display:inline-block;width:6px;height:6px;border-radius:50%;
   background:var(--moss);margin-right:8px;vertical-align:1px;
 }
+@media (prefers-reduced-motion: no-preference){
+  @keyframes live{0%,100%{opacity:1}50%{opacity:.35}}
+  .nav-extra .dot{animation:live 2.4s ease-in-out infinite}
+}
 .lang a{border-bottom-color:transparent}
 .lang a[aria-current="page"]{color:var(--moss);border-bottom-color:transparent}
 .lang::before,.nav-extra::before{ /* edge fade where the scrolling links run under it */
@@ -492,22 +496,6 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 .twin-cta:hover{background:var(--moss);color:var(--ink)}
 .twin-cta .arrow{transition:transform .18s ease}
 .twin-cta:hover .arrow{transform:translateX(3px)}
-
-/* a link from a section into one specific answer */
-.ask{
-  display:inline-flex;align-items:baseline;
-  margin-top:26px;
-  font-family:var(--f-mono);font-size:11px;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-  color:var(--accent);text-decoration:none;
-  border-bottom:1px solid transparent;
-  transition:border-color .18s ease;
-}
-.ask:hover{border-bottom-color:var(--accent)}
-.ask .dot{
-  display:inline-block;width:6px;height:6px;border-radius:50%;
-  background:var(--accent);margin-right:9px;
-}
 
 /* ───────────────────────── avatar page ───────────────────────── */
 .page-avatar{
