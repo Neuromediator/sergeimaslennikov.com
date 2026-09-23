@@ -97,13 +97,13 @@ h1,h2,h3{margin:0;font-family:var(--f-display);text-wrap:balance}
 .hero-inner{
   position:relative;
   display:grid;
-  grid-template-columns:1fr 384px;
+  grid-template-columns:minmax(0,1fr) auto;
   gap:56px;
-  align-items:end;
-  padding-block:64px 0;
-  min-height:600px;
+  align-items:center;
+  padding-block:72px;
+  min-height:0;
 }
-.hero-type{padding-bottom:64px}
+.hero-type{padding-bottom:0}
 
 .eyebrow{color:var(--moss);display:block;margin-bottom:26px}
 .eyebrow .dot{
@@ -139,19 +139,18 @@ h1 .surname{
 .meta span{white-space:nowrap}
 
 .hero-photo{
-  align-self:end;
   position:relative;
-  aspect-ratio:4/5;
-  width:100%;
+  margin:0;              /* <figure> defaults to 1em 40px */
+  flex:none;
+  width:clamp(200px,24vw,300px);
+  aspect-ratio:1;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:0 0 0 1px var(--ink-rule);
 }
 .hero-photo img{
   width:100%;height:100%;
-  object-fit:cover;object-position:50% 42%;
-}
-.hero-photo::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg, var(--ink) 0%, rgba(20,21,23,0) 22%);
-  pointer-events:none;
+  object-fit:cover;object-position:50% 38%;
 }
 
 /* status strip */
@@ -357,10 +356,8 @@ h2{
 
 /* ───────────────────────── responsive ───────────────────────── */
 @media (max-width:940px){
-  .hero-inner{grid-template-columns:1fr;gap:0;min-height:0;padding-block:52px 0}
-  .hero-type{padding-bottom:44px}
-  .hero-photo{max-width:420px}
-  .hero-photo::after{background:linear-gradient(0deg, rgba(20,21,23,0) 70%, var(--ink) 100%)}
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding-block:52px}
+  .hero-photo{grid-row:1;width:clamp(140px,26vw,190px)}
   .sec{grid-template-columns:1fr;gap:22px;padding-block:56px}
   h2{padding-top:0}
 }
@@ -369,13 +366,12 @@ h2{
   .wrap{padding-inline:20px}
   h1{font-size:clamp(1.95rem,9.6vw,2.9rem);font-variation-settings:"wdth" 104,"wght" 700}
   h1 .surname{font-variation-settings:"wdth" 104,"wght" 350}
-  .hero-inner{padding-block:40px 0}
-  .hero-type{padding-bottom:36px}
+  .hero-inner{padding-block:40px;gap:24px}
+  .hero-photo{width:132px}
   .eyebrow{margin-bottom:20px}
   .hero-rule{margin-block:26px 22px}
   .lede{max-width:none}
   .meta{margin-top:22px}
-  .hero-photo{max-width:none}
   .status .wrap{display:block;padding-block:14px}
   .status .k{display:block;margin-bottom:4px}
   .status .v{letter-spacing:.04em;line-height:1.5}
