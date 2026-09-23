@@ -41,6 +41,7 @@
   --ink-rule:  rgba(242,237,226,.15);
 
   --rail: 208px;
+  --when: 168px;   /* left column of the work, project, skills and study rows */
   --gap: 44px;
   --max: 1120px;
 
@@ -244,13 +245,13 @@ h2{
 .track{display:flex;flex-direction:column}
 .leg{
   display:grid;
-  grid-template-columns:132px minmax(0,1fr);
+  grid-template-columns:var(--when) minmax(0,1fr);
   gap:24px;
   padding-block:22px;
   border-top:1px solid var(--rule-soft);
 }
 .leg:first-child{border-top:0;padding-top:0}
-.leg .when{color:var(--fg-faint);padding-top:6px;white-space:nowrap}
+.leg .when{color:var(--fg-faint);padding-top:6px}
 .leg h3{
   font-variation-settings:"wdth" 100,"wght" 600;
   font-size:1.04rem;letter-spacing:.01em;
@@ -269,7 +270,7 @@ h2{
 .projects{display:flex;flex-direction:column}
 .proj{
   display:grid;
-  grid-template-columns:132px minmax(0,1fr);
+  grid-template-columns:var(--when) minmax(0,1fr);
   gap:24px;
   padding:26px 20px 26px 16px;
   margin-left:-16px;
@@ -308,7 +309,7 @@ h2{
 .caps{display:flex;flex-direction:column;gap:26px}
 .cap-group{
   display:grid;
-  grid-template-columns:132px minmax(0,1fr);
+  grid-template-columns:var(--when) minmax(0,1fr);
   gap:24px;
   align-items:start;
 }
@@ -326,13 +327,13 @@ h2{
 .study{display:flex;flex-direction:column}
 .item{
   display:grid;
-  grid-template-columns:132px minmax(0,1fr);
+  grid-template-columns:var(--when) minmax(0,1fr);
   gap:24px;
   padding-block:17px;
   border-top:1px solid var(--rule-soft);
 }
 .item:first-child{border-top:0;padding-top:0}
-.item .when{color:var(--fg-faint);padding-top:4px;white-space:nowrap}
+.item .when{color:var(--fg-faint);padding-top:4px}
 .item .what{font-size:1.02rem}
 .item .who{display:block;color:var(--fg-faint);font-size:.92rem}
 
