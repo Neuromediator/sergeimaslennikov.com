@@ -6,9 +6,9 @@
 Writes the home page and the avatar page for every language in BUILD, plus
 public/style.css. No dependencies, standard library only.
 
-public/ is not in git: Cloudflare Pages runs this script on every push (build
-command "python3 build.py", output directory "public"). Run it locally to
-preview -- see README.md.
+public/ is not in git: Cloudflare Workers Builds runs this script on every push
+and deploys the result with "npx wrangler deploy" (see wrangler.jsonc). Run it
+locally to preview -- see README.md.
 
 Template syntax (a small subset of Mustache):
 
@@ -28,9 +28,9 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SITE = "https://sergeimaslennikov.com"
 
-# Where the digital twin runs. Change this one line to the custom domain once
-# avatar.sergeimaslennikov.com has its Fly certificate; nothing else moves.
-AVATAR_URL = "https://avatar-sergei.fly.dev/"
+# Where the digital twin runs: a Fly app, served from a subdomain of this site so
+# its "Keep chat" cookie is first-party inside the iframe on /avatar/.
+AVATAR_URL = "https://avatar.sergeimaslennikov.com/"
 
 # Archivo and Newsreader carry no Cyrillic, so the Russian page uses two
 # families that do. Both are close in feel to the originals.
