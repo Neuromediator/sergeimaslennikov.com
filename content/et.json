@@ -59,7 +59,8 @@
     },
     {
       "id": "education",
-      "label": "Haridus"
+      "label": "Haridus",
+      "short": "Haridus"
     },
     {
       "id": "outside",

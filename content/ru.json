@@ -59,7 +59,8 @@
     },
     {
       "id": "education",
-      "label": "Образование"
+      "label": "Образование",
+      "short": "Учёба"
     },
     {
       "id": "outside",

@@ -416,7 +416,7 @@ h2{
 .nav .wrap{gap:0;overflow:visible}
 .nav-links{
   display:flex;align-items:center;gap:26px;
-  flex:1;min-width:0;
+  flex:1;min-width:0;order:1;
   overflow-x:auto;
   overscroll-behavior-x:contain;
   scrollbar-width:none;-ms-overflow-style:none;
@@ -424,7 +424,7 @@ h2{
 }
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links .short{display:none}
-.nav-actions{display:flex;align-items:center;flex:none}
+.nav-actions{display:flex;align-items:center;flex:none;order:2}
 .lang,.nav-extra{
   position:relative;
   flex:none;display:flex;align-items:center;gap:12px;
@@ -493,8 +493,20 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   /* Two rows instead of a sideways scroller: every section stays one tap away.
      display:contents lets the links wrap together with the twin and the theme
      in the bar's own flex flow. */
-  .nav .wrap{flex-wrap:wrap;row-gap:9px;column-gap:12px;overflow:visible;padding-block:11px}
-  .nav-links{display:contents}
+  /* The bar becomes ordinary flowing text with the twin and theme floated to the
+     top right: the links wrap *around* them, so the actions can never end up
+     alone on a row of their own however narrow the screen is. */
+  .nav .wrap{
+    display:block;overflow:visible;padding-block:10px;line-height:2.2;
+    font-size:0;   /* kills the whitespace between the inline-block links */
+  }
+  .nav-links a,.nav-actions{font-size:11px}
+  .nav-actions{float:right;margin-left:10px;line-height:1;margin-bottom:-2px}
+  .nav-actions a{padding-bottom:0}
+  .theme-btn{padding:0 0 0 2px}
+  .nav-links{display:inline}
+  .nav-links a{display:inline-block;margin-right:9px}
+  .nav-links a:last-of-type{margin-right:0}
   .nav-links .full{display:none}
   .nav-links .short{display:inline}
   .nav a{letter-spacing:.1em;padding-bottom:3px}

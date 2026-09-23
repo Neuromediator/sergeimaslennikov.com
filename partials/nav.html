@@ -1,9 +1,5 @@
 <nav class="nav" aria-label="{{labels.sections}}">
   <div class="wrap mono">
-    <div class="nav-links">
-      {{#nav}}<a href="{{href}}"><span class="full">{{label}}</span><span class="short">{{short}}</span></a>
-      {{/nav}}
-    </div>
     <div class="nav-actions">
     <div class="nav-extra">
       <a href="{{avatar_href}}"{{&avatar_current}}{{&avatar_target}}><span class="dot"></span>{{avatar.nav_label}}<span class="live"> · {{avatar.nav_live}}</span>{{&avatar_arrow}}</a>
@@ -19,6 +15,10 @@
       {{/items}}
     </div>
     {{/langs}}
+    </div>
+    <div class="nav-links">
+      {{#nav}}<a href="{{href}}"><span class="full">{{label}}</span><span class="short">{{short}}</span></a>
+      {{/nav}}
     </div>
   </div>
 </nav>

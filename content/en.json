@@ -60,7 +60,8 @@
     },
     {
       "id": "education",
-      "label": "Education"
+      "label": "Education",
+      "short": "Study"
     },
     {
       "id": "outside",
