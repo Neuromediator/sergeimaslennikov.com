@@ -43,17 +43,16 @@
     },
     {
       "id": "twin",
-      "label": "Цифровой двойник"
+      "label": "Цифровой двойник",
+      "short": "Двойник"
     },
     {
       "id": "work",
-      "label": "Опыт",
-      "phone": true
+      "label": "Опыт"
     },
     {
       "id": "projects",
-      "label": "Проекты",
-      "phone": true
+      "label": "Проекты"
     },
     {
       "id": "skills",
@@ -65,12 +64,12 @@
     },
     {
       "id": "outside",
-      "label": "Вне работы"
+      "label": "Вне работы",
+      "short": "Вне работы"
     },
     {
       "id": "contact",
-      "label": "Контакты",
-      "phone": true
+      "label": "Контакты"
     }
   ],
   "about": {

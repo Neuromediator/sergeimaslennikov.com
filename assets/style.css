@@ -424,6 +424,7 @@ h2{
 }
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links .short{display:none}
+.nav-actions{display:flex;align-items:center;flex:none}
 .lang,.nav-extra{
   position:relative;
   flex:none;display:flex;align-items:center;gap:12px;
@@ -489,22 +490,22 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 :root[data-theme="light"] .theme-btn .sun{display:none}
 
 @media (max-width:620px){
-  /* a phone bar holds four things comfortably: three sections, the twin, the theme */
-  .nav-links a:not(.on-phone){display:none}
+  /* Two rows instead of a sideways scroller: every section stays one tap away.
+     display:contents lets the links wrap together with the twin and the theme
+     in the bar's own flex flow. */
+  .nav .wrap{flex-wrap:wrap;row-gap:9px;column-gap:12px;overflow:visible;padding-block:11px}
+  .nav-links{display:contents}
   .nav-links .full{display:none}
   .nav-links .short{display:inline}
-  .nav-links{gap:16px;padding-right:14px}
-  .nav-links a{letter-spacing:.1em}   /* the whole bar has to fit a 360px phone */
-  .nav-extra::before{width:14px}
-  /* narrowest phones: the two links that matter keep the bar scroll-free */
-  @media (max-width:400px){
-    .nav-links a[href$="#work"]{display:none}
-  }
-  .theme{padding-left:8px}
+  .nav a{letter-spacing:.1em;padding-bottom:3px}
+  .theme{padding-left:7px}
+  .theme-btn{padding:3px}
   .lang{gap:10px;padding-left:12px}
   /* the bar is narrow: the pulsing dot carries "live", the word goes */
-  .nav-extra{padding-left:10px;padding-right:8px}
+  .nav-extra{padding-left:9px}
+  .nav-extra .dot{margin-right:6px}
   .nav-extra .live{display:none}
+  .nav-extra::before{display:none}   /* nothing scrolls, so nothing to fade */
 }
 
 /* ───────────────────────── digital twin ───────────────────────── */

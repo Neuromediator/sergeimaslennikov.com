@@ -43,18 +43,17 @@
     },
     {
       "id": "twin",
-      "label": "Digital twin"
+      "label": "Digital twin",
+      "short": "Twin"
     },
     {
       "id": "work",
       "label": "Work history",
-      "short": "Work",
-      "phone": true
+      "short": "Work"
     },
     {
       "id": "projects",
-      "label": "Projects",
-      "phone": true
+      "label": "Projects"
     },
     {
       "id": "skills",
@@ -66,12 +65,12 @@
     },
     {
       "id": "outside",
-      "label": "Outside work"
+      "label": "Outside work",
+      "short": "Life"
     },
     {
       "id": "contact",
-      "label": "Contact",
-      "phone": true
+      "label": "Contact"
     }
   ],
   "about": {

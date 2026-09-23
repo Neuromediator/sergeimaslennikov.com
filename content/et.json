@@ -43,17 +43,16 @@
     },
     {
       "id": "twin",
-      "label": "Digitaalne kaksik"
+      "label": "Digitaalne kaksik",
+      "short": "Kaksik"
     },
     {
       "id": "work",
-      "label": "Töökäik",
-      "phone": true
+      "label": "Töökäik"
     },
     {
       "id": "projects",
-      "label": "Projektid",
-      "phone": true
+      "label": "Projektid"
     },
     {
       "id": "skills",
@@ -65,12 +64,12 @@
     },
     {
       "id": "outside",
-      "label": "Väljaspool tööd"
+      "label": "Väljaspool tööd",
+      "short": "Vaba aeg"
     },
     {
       "id": "contact",
-      "label": "Kontakt",
-      "phone": true
+      "label": "Kontakt"
     }
   ],
   "about": {
