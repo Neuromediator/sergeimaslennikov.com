@@ -386,9 +386,14 @@ h2{
   .leg.pivot p{padding-left:14px}
   .cap-group{gap:12px}
   .facts{gap:0}
-  .reach a{gap:2px;padding-block:13px}
+  /* label above value: an email address and a label do not share a phone line */
+  .reach a{
+    flex-direction:column;align-items:flex-start;
+    gap:5px;padding-block:15px;
+  }
+  .reach a:hover{padding-left:0}
   .reach .label{width:auto}
-  .reach .val{font-size:1.02rem}
+  .reach .val{font-size:1rem;line-height:1.3}
 }
 
 /* ───────────────────────── motion ───────────────────────── */
@@ -418,6 +423,7 @@ h2{
   padding-right:34px;
 }
 .nav-links::-webkit-scrollbar{display:none}
+.nav-links .short{display:none}
 .lang,.nav-extra{
   position:relative;
   flex:none;display:flex;align-items:center;gap:12px;
@@ -483,12 +489,21 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 :root[data-theme="light"] .theme-btn .sun{display:none}
 
 @media (max-width:620px){
-  .theme{padding-left:10px}
-  .nav-extra{padding-right:10px}
-  .nav-links{gap:20px}
+  /* a phone bar holds four things comfortably: three sections, the twin, the theme */
+  .nav-links a:not(.on-phone){display:none}
+  .nav-links .full{display:none}
+  .nav-links .short{display:inline}
+  .nav-links{gap:16px;padding-right:14px}
+  .nav-links a{letter-spacing:.1em}   /* the whole bar has to fit a 360px phone */
+  .nav-extra::before{width:14px}
+  /* narrowest phones: the two links that matter keep the bar scroll-free */
+  @media (max-width:400px){
+    .nav-links a[href$="#work"]{display:none}
+  }
+  .theme{padding-left:8px}
   .lang{gap:10px;padding-left:12px}
   /* the bar is narrow: the pulsing dot carries "live", the word goes */
-  .nav-extra{padding-left:12px}
+  .nav-extra{padding-left:10px;padding-right:8px}
   .nav-extra .live{display:none}
 }
 

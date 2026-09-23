@@ -47,11 +47,13 @@
     },
     {
       "id": "work",
-      "label": "Опыт"
+      "label": "Опыт",
+      "phone": true
     },
     {
       "id": "projects",
-      "label": "Проекты"
+      "label": "Проекты",
+      "phone": true
     },
     {
       "id": "skills",
@@ -67,7 +69,8 @@
     },
     {
       "id": "contact",
-      "label": "Контакты"
+      "label": "Контакты",
+      "phone": true
     }
   ],
   "about": {

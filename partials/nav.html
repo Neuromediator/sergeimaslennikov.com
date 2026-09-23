@@ -1,7 +1,7 @@
 <nav class="nav" aria-label="{{labels.sections}}">
   <div class="wrap mono">
     <div class="nav-links">
-      {{#nav}}<a href="{{href}}">{{label}}</a>
+      {{#nav}}<a href="{{href}}"{{&cls}}><span class="full">{{label}}</span><span class="short">{{short}}</span></a>
       {{/nav}}
     </div>
     <div class="nav-extra">

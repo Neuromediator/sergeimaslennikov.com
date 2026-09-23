@@ -161,6 +161,10 @@ def prepare(code, content):
     for item in content["nav"]:
         # section links are in-page on the home page, back to it everywhere else
         item["href"] = "#" + item["id"]
+        # only the items marked "phone" stay in the narrow nav bar, under their
+        # short label when they have one
+        item["cls"] = ' class="on-phone"' if item.get("phone") else ""
+        item.setdefault("short", item["label"])
     built = [lang for lang in LANGS if lang[0] in BUILD]
     toggle = [
         {

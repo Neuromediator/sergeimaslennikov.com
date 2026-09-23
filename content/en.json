@@ -47,11 +47,14 @@
     },
     {
       "id": "work",
-      "label": "Work history"
+      "label": "Work history",
+      "short": "Work",
+      "phone": true
     },
     {
       "id": "projects",
-      "label": "Projects"
+      "label": "Projects",
+      "phone": true
     },
     {
       "id": "skills",
@@ -67,7 +70,8 @@
     },
     {
       "id": "contact",
-      "label": "Contact"
+      "label": "Contact",
+      "phone": true
     }
   ],
   "about": {

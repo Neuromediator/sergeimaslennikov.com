@@ -47,11 +47,13 @@
     },
     {
       "id": "work",
-      "label": "Töökäik"
+      "label": "Töökäik",
+      "phone": true
     },
     {
       "id": "projects",
-      "label": "Projektid"
+      "label": "Projektid",
+      "phone": true
     },
     {
       "id": "skills",
@@ -67,7 +69,8 @@
     },
     {
       "id": "contact",
-      "label": "Kontakt"
+      "label": "Kontakt",
+      "phone": true
     }
   ],
   "about": {
