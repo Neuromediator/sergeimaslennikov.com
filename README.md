@@ -45,6 +45,10 @@ git add -A && git commit -m "Add the X project" && git push
 The push is the deploy. Cloudflare builds and the site is live in about a
 minute. `public/` is not in git — it is generated on both sides.
 
+The twin only allows framing from sergeimaslennikov.com (`FRAME_ANCESTORS` in
+the avatar repo), so in a local preview `/avatar/` shows an empty frame. Check
+that page on the live site instead.
+
 To check the deploy the way Cloudflare does it, before pushing:
 
 ```sh

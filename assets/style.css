@@ -570,22 +570,7 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   gap:6px;padding:24px;text-align:center;
   color:var(--bone-dim);
 }
-.avatar-foot{
-  flex:none;
-  background:var(--ink-2);
-  border-top:1px solid var(--ink-rule);
-  color:var(--bone-dim);
-}
-.avatar-foot .wrap{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;
-  padding-block:12px;
-}
-.avatar-foot a{color:var(--moss);text-decoration:none;border-bottom:1px solid transparent}
-@media (max-width:620px){
-  /* keep the strip to one line: the link alone says enough */
-  .avatar-foot .note{display:none}
-}
-.avatar-foot a:hover{border-bottom-color:var(--moss)}
+.nav-extra .out{margin-left:5px;font-size:10px;vertical-align:1px}
 
 @media (max-width:940px){
   .twin .wrap{grid-template-columns:1fr;gap:22px;padding-block:56px}

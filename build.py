@@ -182,6 +182,9 @@ def prepare(code, content):
         avatar_url=AVATAR_URL,
         avatar_url_json=json.dumps(AVATAR_URL),
         avatar_current="",
+        avatar_href="/avatar/",
+        avatar_target="",
+        avatar_arrow="",
         langs={"items": toggle} if len(built) > 1 else None,
         alternates=(
             [{"hreflang": c, "href": SITE + p} for c, _, p, _, _ in built]
@@ -217,7 +220,12 @@ def main():
                 "canonical": SITE + here,
             }
             if meta_key == "avatar":
+                # already on the twin's page, so the nav item opens the app in a
+                # tab of its own instead of pointing back here
                 content["avatar_current"] = ' aria-current="page"'
+                content["avatar_href"] = AVATAR_URL
+                content["avatar_target"] = ' target="_blank" rel="noopener"'
+                content["avatar_arrow"] = '<span class="out" aria-hidden="true">&#8599;</span>'
                 for item in content["nav"]:
                     item["href"] = path + "#" + item["id"]
             template = expand_partials(
