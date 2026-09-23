@@ -458,6 +458,7 @@ h2{
   pointer-events:none;
 }
 .nav::after{display:none}
+.nav-solo::after{display:block}
 
 /* ───────────────────── Cyrillic: Archivo and Newsreader have no Cyrillic ─── */
 html[lang="ru"]{
@@ -499,16 +500,17 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   </div>
 </div>
 
-<nav class="nav" aria-label="{{labels.sections}}">
+<nav class="nav{{&nav_class}}" aria-label="{{labels.sections}}">
   <div class="wrap mono">
     <div class="nav-links">
       {{#nav}}<a href="#{{id}}">{{label}}</a>
       {{/nav}}
     </div>
-    <div class="lang" role="group" aria-label="{{labels.language}}">
-      {{#langs}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
-      {{/langs}}
+    {{#langs}}<div class="lang" role="group" aria-label="{{labels.language}}">
+      {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
+      {{/items}}
     </div>
+    {{/langs}}
   </div>
 </nav>
 

@@ -48,6 +48,12 @@ LANGS = [
     ("ru", "RU", "/ru/", "ru_RU", FONTS_CYRILLIC),
 ]
 
+# Which of those get built. The Estonian and Russian text is finished and sits in
+# content/, waiting: put "et" and "ru" back in this list and the pages, the
+# toggle and the hreflang tags all come back. With one language there is no
+# toggle and no alternates.
+BUILD = ["en"]
+
 SECTION = re.compile(r"\{\{#([\w.]+)\}\}")
 VALUE = re.compile(r"\{\{(&?)([\w.]+|\.)\}\}")
 
@@ -128,23 +134,30 @@ def prepare(code, content):
             "" if link["href"].startswith("mailto:") else ' target="_blank" rel="noopener"'
         )
     path, og_locale, fonts = next((p, o, f) for c, _, p, o, f in LANGS if c == code)
+    built = [lang for lang in LANGS if lang[0] in BUILD]
+    toggle = [
+        {
+            "code": c,
+            "short": short,
+            "href": p,
+            "current": ' aria-current="page"' if c == code else "",
+        }
+        for c, short, p, _, _ in built
+    ]
     content.update(
         lang=code,
         site=SITE,
         canonical=SITE + path,
         og_locale=og_locale,
         fonts=fonts,
-        langs=[
-            {
-                "code": c,
-                "short": short,
-                "href": p,
-                "current": ' aria-current="page"' if c == code else "",
-            }
-            for c, short, p, _, _ in LANGS
-        ],
-        alternates=[{"hreflang": c, "href": SITE + p} for c, _, p, _, _ in LANGS]
-        + [{"hreflang": "x-default", "href": SITE + "/"}],
+        nav_class="" if len(built) > 1 else " nav-solo",
+        langs={"items": toggle} if len(built) > 1 else None,
+        alternates=(
+            [{"hreflang": c, "href": SITE + p} for c, _, p, _, _ in built]
+            + [{"hreflang": "x-default", "href": SITE + "/"}]
+            if len(built) > 1
+            else []
+        ),
     )
     return content
 
@@ -152,6 +165,8 @@ def prepare(code, content):
 def main():
     template = (ROOT / "template.html").read_text(encoding="utf-8")
     for code, _, path, _, _ in LANGS:
+        if code not in BUILD:
+            continue
         source = ROOT / "content" / ("%s.json" % code)
         if not source.exists():
             print("skipping %s (no %s yet)" % (code, source.name))

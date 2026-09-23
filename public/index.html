@@ -7,10 +7,6 @@
 <title>Sergei Maslennikov</title>
 <meta name="description" content="Sergei Maslennikov — LLM engineer and AI practitioner in Tallinn, Estonia. RAG pipelines, agent workflows, LLM-powered products.">
 <link rel="canonical" href="https://sergeimaslennikov.com/">
-<link rel="alternate" hreflang="en" href="https://sergeimaslennikov.com/">
-<link rel="alternate" hreflang="et" href="https://sergeimaslennikov.com/et/">
-<link rel="alternate" hreflang="ru" href="https://sergeimaslennikov.com/ru/">
-<link rel="alternate" hreflang="x-default" href="https://sergeimaslennikov.com/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Sergei Maslennikov">
 <meta property="og:description" content="Sergei Maslennikov — LLM engineer and AI practitioner in Tallinn, Estonia. RAG pipelines, agent workflows, LLM-powered products.">
@@ -461,6 +457,7 @@ h2{
   pointer-events:none;
 }
 .nav::after{display:none}
+.nav-solo::after{display:block}
 
 /* ───────────────────── Cyrillic: Archivo and Newsreader have no Cyrillic ─── */
 html[lang="ru"]{
@@ -502,7 +499,7 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   </div>
 </div>
 
-<nav class="nav" aria-label="Sections">
+<nav class="nav nav-solo" aria-label="Sections">
   <div class="wrap mono">
     <div class="nav-links">
       <a href="#about">About</a>
@@ -514,12 +511,7 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
       <a href="#contact">Contact</a>
       
     </div>
-    <div class="lang" role="group" aria-label="Language">
-      <a href="/" hreflang="en" lang="en" aria-current="page">EN</a>
-      <a href="/et/" hreflang="et" lang="et">ET</a>
-      <a href="/ru/" hreflang="ru" lang="ru">RU</a>
-      
-    </div>
+    
   </div>
 </nav>
 
