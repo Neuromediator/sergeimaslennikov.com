@@ -7,6 +7,12 @@
     <div class="nav-extra">
       <a href="/avatar/"{{&avatar_current}}><span class="dot"></span>{{avatar.nav_label}}<span class="live"> · {{avatar.nav_live}}</span></a>
     </div>
+    <div class="theme">
+      <button type="button" class="theme-btn" aria-label="{{labels.theme}}" title="{{labels.theme}}">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.4M12 19v2.4M4.6 12H2.2M21.8 12h-2.4M6.4 6.4 4.7 4.7M19.3 19.3l-1.7-1.7M17.6 6.4l1.7-1.7M4.7 19.3l1.7-1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.6 8.6 0 1 0 10.6 10.6z"/></svg>
+      </button>
+    </div>
     {{#langs}}<div class="lang" role="group" aria-label="{{labels.language}}">
       {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
       {{/items}}
@@ -14,3 +20,20 @@
     {{/langs}}
   </div>
 </nav>
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.querySelector('.theme-btn');
+  if (!btn) return;
+  function effective() {
+    var set = root.getAttribute('data-theme');
+    if (set === 'dark' || set === 'light') return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  btn.addEventListener('click', function () {
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('site-theme', next); } catch (e) {}
+  });
+})();
+</script>

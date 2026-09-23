@@ -5,7 +5,8 @@
     "sections": "Sections",
     "language": "Language",
     "live": "Live",
-    "code": "Code"
+    "code": "Code",
+    "theme": "Theme"
   },
   "hero": {
     "eyebrow": "Tallinn, Estonia",

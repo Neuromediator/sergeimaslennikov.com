@@ -428,6 +428,7 @@ h2{
   padding-left:16px;
   border-left:1px solid var(--ink-rule);
 }
+.nav-extra{padding-right:14px}
 .nav-extra a{color:var(--moss);border-bottom-color:transparent}
 .nav-extra a:hover{color:var(--moss);border-bottom-color:var(--moss)}
 .nav-extra a[aria-current="page"]{border-bottom-color:var(--moss)}
@@ -456,7 +457,38 @@ html[lang="ru"]{
 }
 html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 
+/* ── theme toggle ── */
+.theme{
+  flex:none;display:flex;align-items:center;
+  padding-left:14px;
+  border-left:1px solid var(--ink-rule);
+}
+.theme-btn{
+  appearance:none;background:none;border:0;padding:4px;margin:0;
+  display:flex;align-items:center;
+  color:var(--bone-dim);cursor:pointer;
+  transition:color .18s ease;
+}
+.theme-btn:hover{color:var(--bone)}
+.theme-btn svg{
+  width:15px;height:15px;display:block;
+  fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+/* show the icon of the theme you would switch to -- same rule shape as the tokens */
+.theme-btn .sun{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-btn .moon{display:none}
+  :root:not([data-theme="light"]) .theme-btn .sun{display:block}
+}
+:root[data-theme="dark"] .theme-btn .moon{display:none}
+:root[data-theme="dark"] .theme-btn .sun{display:block}
+:root[data-theme="light"] .theme-btn .moon{display:block}
+:root[data-theme="light"] .theme-btn .sun{display:none}
+
 @media (max-width:620px){
+  .theme{padding-left:10px}
+  .nav-extra{padding-right:10px}
   .nav-links{gap:20px}
   .lang{gap:10px;padding-left:12px}
   /* the bar is narrow: the pulsing dot carries "live", the word goes */
