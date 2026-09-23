@@ -19,14 +19,50 @@
     "label": "Current status",
     "value": "Building skills to enter the tech job market — Estonia first, EU in general"
   },
+  "twin": {
+    "label": "Digital twin",
+    "line": "I built a digital twin of myself. Ask it anything.",
+    "note": "It answers from what I have written about myself, in English, Estonian or Russian. When it cannot answer, it passes the question to me — and I can join the chat myself.",
+    "cta": "Open the twin"
+  },
+  "avatar": {
+    "nav_label": "Avatar",
+    "title": "Digital twin — Sergei Maslennikov",
+    "description": "Ask Sergei Maslennikov's digital twin about his work, projects and background. It answers in English, Estonian or Russian.",
+    "frame_title": "Sergei Maslennikov's digital twin",
+    "foot": "The twin runs as a separate app.",
+    "open_direct": "Open it in a new tab",
+    "noscript": "The chat needs JavaScript."
+  },
   "nav": [
-    { "id": "about", "label": "About" },
-    { "id": "work", "label": "Work history" },
-    { "id": "projects", "label": "Projects" },
-    { "id": "skills", "label": "Skills" },
-    { "id": "education", "label": "Education" },
-    { "id": "outside", "label": "Outside work" },
-    { "id": "contact", "label": "Contact" }
+    {
+      "id": "about",
+      "label": "About"
+    },
+    {
+      "id": "work",
+      "label": "Work history"
+    },
+    {
+      "id": "projects",
+      "label": "Projects"
+    },
+    {
+      "id": "skills",
+      "label": "Skills"
+    },
+    {
+      "id": "education",
+      "label": "Education"
+    },
+    {
+      "id": "outside",
+      "label": "Outside work"
+    },
+    {
+      "id": "contact",
+      "label": "Contact"
+    }
   ],
   "about": {
     "title": "About",
@@ -64,7 +100,11 @@
         "role": "LLM Engineer · AI Practitioner",
         "body": "Building pet projects and applied AI systems — RAG pipelines, agent workflows, LLM-powered products."
       }
-    ]
+    ],
+    "ask": {
+      "label": "Ask the twin why I changed direction",
+      "href": "/avatar/?q=9"
+    }
   },
   "projects": {
     "title": "Projects",
@@ -109,10 +149,22 @@
       {
         "group": "AI",
         "tags": [
-          { "label": "Artificial Intelligence", "key": true },
-          { "label": "LLM engineering", "key": true },
-          { "label": "LLM agents", "key": true },
-          { "label": "Python", "key": true },
+          {
+            "label": "Artificial Intelligence",
+            "key": true
+          },
+          {
+            "label": "LLM engineering",
+            "key": true
+          },
+          {
+            "label": "LLM agents",
+            "key": true
+          },
+          {
+            "label": "Python",
+            "key": true
+          },
           "RAG",
           "QLoRA",
           "Model Context Protocol",
@@ -126,13 +178,23 @@
       },
       {
         "group": "Agentic engineering",
-        "tags": ["Claude Code", "Codex", "OpenCode"]
+        "tags": [
+          "Claude Code",
+          "Codex",
+          "OpenCode"
+        ]
       },
       {
         "group": "Analysis",
         "tags": [
-          { "label": "Data analysis", "key": true },
-          { "label": "Data analytics", "key": true },
+          {
+            "label": "Data analysis",
+            "key": true
+          },
+          {
+            "label": "Data analytics",
+            "key": true
+          },
           "Analytical thinking",
           "Critical thinking",
           "Data-driven decision making"
@@ -140,7 +202,11 @@
       },
       {
         "group": "Languages",
-        "tags": ["Russian — native", "English", "Estonian"]
+        "tags": [
+          "Russian — native",
+          "English",
+          "Estonian"
+        ]
       }
     ]
   },
@@ -185,15 +251,42 @@
       "20 years of almost daily training — mainly in the gym, but also functional training like HIIT and CrossFit, or just walking in the forest. No smoking, no alcohol, healthy diet. I don't eat anything sweet other than fruit."
     ],
     "facts": [
-      { "term": "Training", "def": "20 years, almost daily. Gym, HIIT, CrossFit." },
-      { "term": "Diet", "def": "No smoking, no alcohol, nothing sweet other than fruit." },
-      { "term": "Time off", "def": "Walking alone in nature. Meditation." },
-      { "term": "Attention", "def": "Strict information hygiene — I consider time and attention my most valuable resources." },
-      { "term": "Interested in", "def": "Fitness and sport, data analytics, neurobiology, Stoicism." },
-      { "term": "School", "def": "Straight-A student. Not sure if that counts as a good thing." },
-      { "term": "Film", "def": "Interstellar, by Christopher Nolan." },
-      { "term": "Sportsman", "def": "Andy Murray." },
-      { "term": "Role model", "def": "Pavel Durov." }
+      {
+        "term": "Training",
+        "def": "20 years, almost daily. Gym, HIIT, CrossFit."
+      },
+      {
+        "term": "Diet",
+        "def": "No smoking, no alcohol, nothing sweet other than fruit."
+      },
+      {
+        "term": "Time off",
+        "def": "Walking alone in nature. Meditation."
+      },
+      {
+        "term": "Attention",
+        "def": "Strict information hygiene — I consider time and attention my most valuable resources."
+      },
+      {
+        "term": "Interested in",
+        "def": "Fitness and sport, data analytics, neurobiology, Stoicism."
+      },
+      {
+        "term": "School",
+        "def": "Straight-A student. Not sure if that counts as a good thing."
+      },
+      {
+        "term": "Film",
+        "def": "Interstellar, by Christopher Nolan."
+      },
+      {
+        "term": "Sportsman",
+        "def": "Andy Murray."
+      },
+      {
+        "term": "Role model",
+        "def": "Pavel Durov."
+      }
     ]
   },
   "contact": {

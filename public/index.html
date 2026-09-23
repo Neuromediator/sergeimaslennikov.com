@@ -19,459 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&amp;display=swap">
 
-<style>
-/* ───────────────────────── tokens ───────────────────────── */
-:root{
-  --bg:        #E4E1D9;
-  --bg-raised: #EFEDE7;
-  --fg:        #191B1C;
-  --fg-muted:  #5E5C55;
-  --fg-faint:  #918D83;
-  --rule:      rgba(25,27,28,.16);
-  --rule-soft: rgba(25,27,28,.09);
-  --accent:    #5F6B39;
-  --accent-ink:#F2EDE2;
-
-  /* fixed dark bands — identical in both themes */
-  --ink:       #141517;
-  --ink-2:     #1C1E20;
-  --bone:      #F2EDE2;
-  --bone-dim:  #A6A197;
-  --moss:      #AEBB82;
-  --ink-rule:  rgba(242,237,226,.15);
-
-  --rail: 208px;
-  --when: 168px;   /* left column of the work, project, skills and study rows */
-  --gap: 44px;
-  --max: 1120px;
-
-  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --f-body: "Newsreader", Georgia, "Times New Roman", serif;
-  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:        #131415;
-    --bg-raised: #1B1D1E;
-    --fg:        #E7E3D9;
-    --fg-muted:  #A19C92;
-    --fg-faint:  #7C776E;
-    --rule:      rgba(231,227,217,.17);
-    --rule-soft: rgba(231,227,217,.09);
-    --accent:    #AEBB82;
-    --accent-ink:#141517;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:        #131415;
-  --bg-raised: #1B1D1E;
-  --fg:        #E7E3D9;
-  --fg-muted:  #A19C92;
-  --fg-faint:  #7C776E;
-  --rule:      rgba(231,227,217,.17);
-  --rule-soft: rgba(231,227,217,.09);
-  --accent:    #AEBB82;
-  --accent-ink:#141517;
-}
-
-/* ───────────────────────── base ───────────────────────── */
-*{box-sizing:border-box}
-body{
-  background:var(--bg);
-  color:var(--fg);
-  font-family:var(--f-body);
-  font-size:17px;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-}
-img{display:block;max-width:100%}
-a{color:inherit}
-::selection{background:var(--accent);color:var(--accent-ink)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-.wrap{max-width:var(--max);margin-inline:auto;padding-inline:24px}
-
-.mono{
-  font-family:var(--f-mono);
-  font-size:11px;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  font-weight:500;
-}
-
-h1,h2,h3{margin:0;font-family:var(--f-display);text-wrap:balance}
-
-/* ───────────────────────── hero ───────────────────────── */
-.hero{
-  background:var(--ink);
-  color:var(--bone);
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;inset:0;
-  background-image:
-    repeating-linear-gradient(90deg, rgba(242,237,226,.05) 0 1px, transparent 1px 56px),
-    repeating-linear-gradient(0deg,  rgba(242,237,226,.05) 0 1px, transparent 1px 56px);
-  pointer-events:none;
-}
-.hero-inner{
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 384px;
-  gap:56px;
-  align-items:end;
-  padding-block:64px 0;
-  min-height:600px;
-}
-.hero-type{padding-bottom:64px}
-
-.eyebrow{color:var(--moss);display:block;margin-bottom:26px}
-.eyebrow .dot{
-  display:inline-block;width:6px;height:6px;border-radius:50%;
-  background:var(--moss);margin-right:9px;vertical-align:2px;
-}
-h1{
-  font-variation-settings:"wdth" 118,"wght" 700;
-  font-size:clamp(2.55rem,7.4vw,5.1rem);
-  line-height:.92;
-  letter-spacing:-.005em;
-  text-transform:uppercase;
-}
-h1 .surname{
-  display:block;
-  font-variation-settings:"wdth" 118,"wght" 350;
-  color:var(--bone-dim);
-}
-.hero-rule{
-  height:1px;background:var(--ink-rule);
-  margin-block:32px 26px;
-}
-.lede{
-  font-size:clamp(1.12rem,2.1vw,1.32rem);
-  line-height:1.5;
-  max-width:34ch;
-  color:var(--bone);
-}
-.meta{
-  display:flex;flex-wrap:wrap;gap:8px 22px;
-  margin-top:30px;color:var(--bone-dim);
-}
-.meta span{white-space:nowrap}
-
-.hero-photo{
-  align-self:end;
-  position:relative;
-  aspect-ratio:4/5;
-  width:100%;
-}
-.hero-photo img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:50% 42%;
-}
-.hero-photo::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg, var(--ink) 0%, rgba(20,21,23,0) 22%);
-  pointer-events:none;
-}
-
-/* status strip */
-.status{
-  background:var(--ink-2);
-  color:var(--bone);
-  border-top:1px solid var(--ink-rule);
-}
-.status .wrap{
-  display:flex;flex-wrap:wrap;gap:10px 28px;
-  align-items:baseline;
-  padding-block:16px;
-}
-.status .k{color:var(--moss)}
-.status .v{color:var(--bone);letter-spacing:.06em}
-
-/* ───────────────────────── nav ───────────────────────── */
-.nav{
-  position:sticky;top:0;z-index:20;
-  background:var(--ink);
-  border-bottom:1px solid var(--ink-rule);
-}
-.nav .wrap{
-  display:flex;align-items:center;gap:26px;
-  padding-block:13px;
-  overflow-x:auto;
-  overscroll-behavior-x:contain;
-  scrollbar-width:none;-ms-overflow-style:none;
-}
-.nav .wrap::-webkit-scrollbar{display:none}
-.nav a{
-  color:var(--bone-dim);
-  text-decoration:none;
-  white-space:nowrap;
-  padding-bottom:4px;
-  border-bottom:1px solid transparent;
-  transition:color .18s ease,border-color .18s ease;
-}
-.nav a:hover{color:var(--bone)}
-.nav a[aria-current="true"]{color:var(--moss);border-bottom-color:var(--moss)}
-.nav::after{ /* edge fade when the bar scrolls on narrow screens */
-  content:"";position:absolute;top:0;bottom:1px;right:0;width:34px;
-  background:linear-gradient(90deg,rgba(20,21,23,0),var(--ink));
-  pointer-events:none;
-}
-
-/* ───────────────────────── sections ───────────────────────── */
-section{border-top:1px solid var(--rule-soft)}
-section,footer.contact{scroll-margin-top:52px}
-.sec{
-  display:grid;
-  grid-template-columns:var(--rail) minmax(0,1fr);
-  gap:var(--gap);
-  padding-block:72px;
-}
-h2{
-  font-variation-settings:"wdth" 110,"wght" 600;
-  font-size:clamp(1.32rem,2.4vw,1.7rem);
-  line-height:1.08;
-  text-transform:uppercase;
-  letter-spacing:.008em;
-  padding-top:3px;
-}
-.prose{max-width:62ch}
-.prose p{margin:0 0 1.05em}
-.prose p:last-child{margin-bottom:0}
-
-/* ───────────────────────── history ───────────────────────── */
-.track{display:flex;flex-direction:column}
-.leg{
-  display:grid;
-  grid-template-columns:var(--when) minmax(0,1fr);
-  gap:24px;
-  padding-block:22px;
-  border-top:1px solid var(--rule-soft);
-}
-.leg:first-child{border-top:0;padding-top:0}
-.leg .when{color:var(--fg-faint);padding-top:6px}
-.leg h3{
-  font-variation-settings:"wdth" 100,"wght" 600;
-  font-size:1.04rem;letter-spacing:.01em;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-.leg p{margin:0;color:var(--fg-muted);max-width:58ch}
-.leg.pivot h3{color:var(--accent)}
-.leg.pivot p{
-  border-left:2px solid var(--accent);
-  padding-left:18px;
-  color:var(--fg);
-}
-
-/* ───────────────────────── projects ───────────────────────── */
-.projects{display:flex;flex-direction:column}
-.proj{
-  display:grid;
-  grid-template-columns:var(--when) minmax(0,1fr);
-  gap:24px;
-  padding:26px 20px 26px 16px;
-  margin-left:-16px;
-  border-top:1px solid var(--rule-soft);
-  border-left:2px solid transparent;
-  transition:background .22s ease, border-color .22s ease;
-}
-.proj:first-child{border-top:0}
-.proj:hover{background:var(--bg-raised);border-left-color:var(--accent)}
-.proj .when{color:var(--fg-faint);padding-top:6px}
-.proj h3{
-  font-variation-settings:"wdth" 104,"wght" 600;
-  font-size:1.24rem;line-height:1.16;
-  text-transform:uppercase;letter-spacing:.005em;
-  margin-bottom:9px;
-}
-.proj p{margin:0;color:var(--fg-muted);max-width:60ch}
-.proj .caveat{
-  display:block;margin-top:8px;
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--fg-faint);
-}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.links a{
-  font-family:var(--f-mono);font-size:11px;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-  text-decoration:none;
-  border:1px solid var(--rule);
-  padding:7px 13px;
-  color:var(--fg-muted);
-  transition:color .18s ease,border-color .18s ease,background .18s ease;
-}
-.links a:hover{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
-
-/* ───────────────────────── skills ───────────────────────── */
-.caps{display:flex;flex-direction:column;gap:26px}
-.cap-group{
-  display:grid;
-  grid-template-columns:var(--when) minmax(0,1fr);
-  gap:24px;
-  align-items:start;
-}
-.cap-group > .mono{color:var(--fg-faint);padding-top:5px}
-.tags{display:flex;flex-wrap:wrap;gap:7px}
-.tags span{
-  font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;
-  border:1px solid var(--rule);
-  padding:5px 11px;
-  color:var(--fg);
-}
-.tags span.key{border-color:var(--accent);color:var(--accent)}
-
-/* ───────────────────────── education ───────────────────────── */
-.study{display:flex;flex-direction:column}
-.item{
-  display:grid;
-  grid-template-columns:var(--when) minmax(0,1fr);
-  gap:24px;
-  padding-block:17px;
-  border-top:1px solid var(--rule-soft);
-}
-.item:first-child{border-top:0;padding-top:0}
-.item .when{color:var(--fg-faint);padding-top:4px}
-.item .what{font-size:1.02rem}
-.item .who{display:block;color:var(--fg-faint);font-size:.92rem}
-
-/* ───────────────────────── personal ───────────────────────── */
-.facts{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(248px,1fr));
-  gap:0 44px;
-}
-.fact{padding-block:15px;border-top:1px solid var(--rule-soft)}
-.fact dt{color:var(--fg-faint);margin-bottom:5px}
-.fact dd{margin:0;color:var(--fg);line-height:1.45}
-
-/* ───────────────────────── contact ───────────────────────── */
-.contact{background:var(--ink);color:var(--bone);border-top:0}
-.contact h2{color:var(--bone)}
-.reach{display:flex;flex-direction:column;border-top:1px solid var(--ink-rule)}
-.reach a{
-  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-  text-decoration:none;
-  padding-block:14px;
-  border-bottom:1px solid var(--ink-rule);
-  transition:padding-left .2s ease,color .2s ease;
-}
-.reach a:hover{padding-left:12px;color:var(--moss)}
-.reach .label{
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--bone-dim);
-  width:104px;flex:none;
-}
-.reach .val{
-  font-family:var(--f-display);
-  font-variation-settings:"wdth" 100,"wght" 500;
-  font-size:clamp(1rem,2.2vw,1.2rem);
-  letter-spacing:.005em;
-  word-break:break-word;
-}
-.colophon{
-  border-top:1px solid var(--ink-rule);
-  color:var(--bone-dim);
-  padding-block:20px 30px;
-}
-
-/* ───────────────────────── responsive ───────────────────────── */
-@media (max-width:940px){
-  .hero-inner{grid-template-columns:1fr;gap:0;min-height:0;padding-block:52px 0}
-  .hero-type{padding-bottom:44px}
-  .hero-photo{max-width:420px}
-  .hero-photo::after{background:linear-gradient(0deg, rgba(20,21,23,0) 70%, var(--ink) 100%)}
-  .sec{grid-template-columns:1fr;gap:22px;padding-block:56px}
-  h2{padding-top:0}
-}
-@media (max-width:620px){
-  body{font-size:16px}
-  .wrap{padding-inline:20px}
-  h1{font-size:clamp(1.95rem,9.6vw,2.9rem);font-variation-settings:"wdth" 104,"wght" 700}
-  h1 .surname{font-variation-settings:"wdth" 104,"wght" 350}
-  .hero-inner{padding-block:40px 0}
-  .hero-type{padding-bottom:36px}
-  .eyebrow{margin-bottom:20px}
-  .hero-rule{margin-block:26px 22px}
-  .lede{max-width:none}
-  .meta{margin-top:22px}
-  .hero-photo{max-width:none}
-  .status .wrap{display:block;padding-block:14px}
-  .status .k{display:block;margin-bottom:4px}
-  .status .v{letter-spacing:.04em;line-height:1.5}
-  .nav .wrap{gap:20px;padding-inline:20px}
-  .sec{padding-block:44px;gap:18px}
-  .leg,.proj,.cap-group,.item{grid-template-columns:1fr;gap:8px}
-  .leg .when:empty{display:none}
-  .leg{padding-block:20px}
-  .proj{padding:20px 14px;margin-left:-14px}
-  .leg .when,.item .when,.proj .when{padding-top:0}
-  .leg p,.proj p{max-width:none}
-  .leg.pivot p{padding-left:14px}
-  .cap-group{gap:12px}
-  .facts{gap:0}
-  .reach a{gap:2px;padding-block:13px}
-  .reach .label{width:auto}
-  .reach .val{font-size:1.02rem}
-}
-
-/* ───────────────────────── motion ───────────────────────── */
-@media (prefers-reduced-motion: no-preference){
-  html{scroll-behavior:smooth}
-  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  @keyframes wipe{from{transform:scaleX(0)}to{transform:none}}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  .hero .eyebrow{animation:rise .5s cubic-bezier(.2,.7,.3,1) backwards}
-  .hero h1{animation:rise .56s cubic-bezier(.2,.7,.3,1) 80ms backwards}
-  .hero-rule{animation:wipe .5s cubic-bezier(.2,.7,.3,1) 220ms backwards;transform-origin:left}
-  .hero .lede{animation:rise .5s cubic-bezier(.2,.7,.3,1) 280ms backwards}
-  .hero .meta{animation:rise .5s cubic-bezier(.2,.7,.3,1) 350ms backwards}
-  .hero-photo{animation:fade .7s ease 140ms backwards}
-}
-
-/* ───────────────────────── language toggle ───────────────────────── */
-/* The nav bar is now two parts: the section links scroll sideways on narrow
-   screens, the language toggle stays pinned on the right. */
-.nav .wrap{gap:0;overflow:visible}
-.nav-links{
-  display:flex;align-items:center;gap:26px;
-  flex:1;min-width:0;
-  overflow-x:auto;
-  overscroll-behavior-x:contain;
-  scrollbar-width:none;-ms-overflow-style:none;
-  padding-right:34px;
-}
-.nav-links::-webkit-scrollbar{display:none}
-.lang{
-  position:relative;
-  flex:none;display:flex;align-items:center;gap:12px;
-  padding-left:16px;
-  border-left:1px solid var(--ink-rule);
-}
-.lang a{border-bottom-color:transparent}
-.lang a[aria-current="page"]{color:var(--moss);border-bottom-color:transparent}
-.lang::before{ /* edge fade where the scrolling links run under the toggle */
-  content:"";position:absolute;right:100%;top:-13px;bottom:-14px;width:34px;
-  background:linear-gradient(90deg,rgba(20,21,23,0),var(--ink));
-  pointer-events:none;
-}
-.nav::after{display:none}
-.nav-solo::after{display:block}
-
-/* ───────────────────── Cyrillic: Archivo and Newsreader have no Cyrillic ─── */
-html[lang="ru"]{
-  --f-display:"Golos Text","Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-body:"Literata",Georgia,"Times New Roman",serif;
-}
-html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
-
-@media (max-width:620px){
-  .nav-links{gap:20px}
-  .lang{gap:10px;padding-left:12px}
-}
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -500,7 +48,7 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   </div>
 </div>
 
-<nav class="nav nav-solo" aria-label="Sections">
+<nav class="nav" aria-label="Sections">
   <div class="wrap mono">
     <div class="nav-links">
       <a href="#about">About</a>
@@ -512,9 +60,13 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
       <a href="#contact">Contact</a>
       
     </div>
+    <div class="nav-extra">
+      <a href="/avatar/"><span class="dot"></span>Avatar</a>
+    </div>
     
   </div>
 </nav>
+
 
 <main>
 
@@ -525,6 +77,17 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
         <p>I am Sergei Maslennikov. I am from Pärnu, a small Estonian town, and I am currently in Tallinn.</p>
         <p>I identify myself as an LLM engineer and AI practitioner. I build my own pet projects and applied AI systems — RAG pipelines, agent workflows, LLM-powered products. I am working to build skills sufficient to enter the tech job market, in Estonia first and the EU in general.</p>
         
+      </div>
+    </div>
+  </section>
+
+  <section class="twin" aria-labelledby="twin-line">
+    <div class="wrap">
+      <div class="mono twin-label">Digital twin</div>
+      <div>
+        <p class="twin-line" id="twin-line">I built a digital twin of myself. Ask it anything.</p>
+        <p class="twin-note">It answers from what I have written about myself, in English, Estonian or Russian. When it cannot answer, it passes the question to me — and I can join the chat myself.</p>
+        <a class="twin-cta" href="/avatar/">Open the twin<span class="arrow">&#8594;</span></a>
       </div>
     </div>
   </section>
@@ -575,6 +138,7 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
         </article>
         
       </div>
+      <a class="ask" href="/avatar/?q=9"><span class="dot"></span>Ask the twin why I changed direction</a>
     </div>
   </section>
 

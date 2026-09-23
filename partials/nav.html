@@ -1,0 +1,16 @@
+<nav class="nav" aria-label="{{labels.sections}}">
+  <div class="wrap mono">
+    <div class="nav-links">
+      {{#nav}}<a href="{{href}}">{{label}}</a>
+      {{/nav}}
+    </div>
+    <div class="nav-extra">
+      <a href="/avatar/"{{&avatar_current}}><span class="dot"></span>{{avatar.nav_label}}</a>
+    </div>
+    {{#langs}}<div class="lang" role="group" aria-label="{{labels.language}}">
+      {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
+      {{/items}}
+    </div>
+    {{/langs}}
+  </div>
+</nav>

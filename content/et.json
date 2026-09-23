@@ -19,14 +19,50 @@
     "label": "Hetkeseis",
     "value": "Kogun oskusi, et siseneda tehnoloogiasektori tööturule — esmalt Eestis, laiemalt Euroopa Liidus"
   },
+  "twin": {
+    "label": "Digitaalne kaksik",
+    "line": "Ehitasin endast digitaalse kaksiku. Küsi temalt, mida tahad.",
+    "note": "Ta vastab selle põhjal, mida olen enda kohta kirjutanud, eesti, inglise või vene keeles. Kui ta ei oska vastata, annab ta küsimuse mulle edasi — ja ma võin vestlusega ka ise liituda.",
+    "cta": "Ava kaksik"
+  },
+  "avatar": {
+    "nav_label": "Avatar",
+    "title": "Digitaalne kaksik — Sergei Maslennikov",
+    "description": "Küsi Sergei Maslennikovi digitaalselt kaksikult tema töö, projektide ja tausta kohta. Ta vastab eesti, inglise või vene keeles.",
+    "frame_title": "Sergei Maslennikovi digitaalne kaksik",
+    "foot": "Kaksik töötab eraldi rakendusena.",
+    "open_direct": "Ava uuel vahekaardil",
+    "noscript": "Vestlus vajab JavaScripti."
+  },
   "nav": [
-    { "id": "about", "label": "Minust" },
-    { "id": "work", "label": "Töökäik" },
-    { "id": "projects", "label": "Projektid" },
-    { "id": "skills", "label": "Oskused" },
-    { "id": "education", "label": "Haridus" },
-    { "id": "outside", "label": "Väljaspool tööd" },
-    { "id": "contact", "label": "Kontakt" }
+    {
+      "id": "about",
+      "label": "Minust"
+    },
+    {
+      "id": "work",
+      "label": "Töökäik"
+    },
+    {
+      "id": "projects",
+      "label": "Projektid"
+    },
+    {
+      "id": "skills",
+      "label": "Oskused"
+    },
+    {
+      "id": "education",
+      "label": "Haridus"
+    },
+    {
+      "id": "outside",
+      "label": "Väljaspool tööd"
+    },
+    {
+      "id": "contact",
+      "label": "Kontakt"
+    }
   ],
   "about": {
     "title": "Minust",
@@ -64,7 +100,11 @@
         "role": "LLM Engineer · AI Practitioner",
         "body": "Ehitan harrastusprojekte ja rakenduslikke AI-süsteeme — RAG-konveierid, agentide töövood, LLM-põhised tooted."
       }
-    ]
+    ],
+    "ask": {
+      "label": "Küsi kaksikult, miks ma suunda muutsin",
+      "href": "/avatar/?q=9"
+    }
   },
   "projects": {
     "title": "Projektid",
@@ -109,10 +149,22 @@
       {
         "group": "AI",
         "tags": [
-          { "label": "Tehisintellekt", "key": true },
-          { "label": "LLM-inseneritöö", "key": true },
-          { "label": "LLM-agendid", "key": true },
-          { "label": "Python", "key": true },
+          {
+            "label": "Tehisintellekt",
+            "key": true
+          },
+          {
+            "label": "LLM-inseneritöö",
+            "key": true
+          },
+          {
+            "label": "LLM-agendid",
+            "key": true
+          },
+          {
+            "label": "Python",
+            "key": true
+          },
           "RAG",
           "QLoRA",
           "Model Context Protocol",
@@ -126,13 +178,23 @@
       },
       {
         "group": "Agentne inseneritöö",
-        "tags": ["Claude Code", "Codex", "OpenCode"]
+        "tags": [
+          "Claude Code",
+          "Codex",
+          "OpenCode"
+        ]
       },
       {
         "group": "Analüüs",
         "tags": [
-          { "label": "Andmeanalüüs", "key": true },
-          { "label": "Andmeanalüütika", "key": true },
+          {
+            "label": "Andmeanalüüs",
+            "key": true
+          },
+          {
+            "label": "Andmeanalüütika",
+            "key": true
+          },
           "Analüütiline mõtlemine",
           "Kriitiline mõtlemine",
           "Andmepõhine otsustamine"
@@ -140,7 +202,11 @@
       },
       {
         "group": "Keeled",
-        "tags": ["Vene — emakeel", "Inglise", "Eesti"]
+        "tags": [
+          "Vene — emakeel",
+          "Inglise",
+          "Eesti"
+        ]
       }
     ]
   },
@@ -185,15 +251,42 @@
       "20 aastat peaaegu igapäevast treeningut — peamiselt jõusaalis, aga ka funktsionaalset treeningut nagu HIIT ja CrossFit, või lihtsalt metsas jalutamist. Ei suitseta, ei tarvita alkoholi, tervislik toitumine. Ei söö midagi magusat peale puuviljade."
     ],
     "facts": [
-      { "term": "Treening", "def": "20 aastat, peaaegu iga päev. Jõusaal, HIIT, CrossFit." },
-      { "term": "Toitumine", "def": "Ei suitseta, ei tarvita alkoholi, midagi magusat peale puuviljade." },
-      { "term": "Vaba aeg", "def": "Üksi looduses jalutamine. Meditatsioon." },
-      { "term": "Tähelepanu", "def": "Range infohügieen — pean aega ja tähelepanu oma kõige väärtuslikumateks ressurssideks." },
-      { "term": "Huvid", "def": "Fitness ja sport, andmeanalüütika, neurobioloogia, stoitsism." },
-      { "term": "Kool", "def": "Viieline õpilane. Ei ole kindel, kas see on hea asi." },
-      { "term": "Film", "def": "Interstellar, Christopher Nolanilt." },
-      { "term": "Sportlane", "def": "Andy Murray." },
-      { "term": "Eeskuju", "def": "Pavel Durov." }
+      {
+        "term": "Treening",
+        "def": "20 aastat, peaaegu iga päev. Jõusaal, HIIT, CrossFit."
+      },
+      {
+        "term": "Toitumine",
+        "def": "Ei suitseta, ei tarvita alkoholi, midagi magusat peale puuviljade."
+      },
+      {
+        "term": "Vaba aeg",
+        "def": "Üksi looduses jalutamine. Meditatsioon."
+      },
+      {
+        "term": "Tähelepanu",
+        "def": "Range infohügieen — pean aega ja tähelepanu oma kõige väärtuslikumateks ressurssideks."
+      },
+      {
+        "term": "Huvid",
+        "def": "Fitness ja sport, andmeanalüütika, neurobioloogia, stoitsism."
+      },
+      {
+        "term": "Kool",
+        "def": "Viieline õpilane. Ei ole kindel, kas see on hea asi."
+      },
+      {
+        "term": "Film",
+        "def": "Interstellar, Christopher Nolanilt."
+      },
+      {
+        "term": "Sportlane",
+        "def": "Andy Murray."
+      },
+      {
+        "term": "Eeskuju",
+        "def": "Pavel Durov."
+      }
     ]
   },
   "contact": {

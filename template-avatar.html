@@ -1,0 +1,33 @@
+{{>head}}
+<body class="page-avatar">
+
+{{>nav}}
+
+<div class="avatar-frame">
+  <iframe id="twin-frame" title="{{avatar.frame_title}}" allow="clipboard-write"></iframe>
+  <noscript>
+    <div class="avatar-fallback">
+      <p>{{avatar.noscript}}</p>
+      <a class="twin-cta" href="{{avatar_url}}" target="_blank" rel="noopener">{{avatar.open_direct}}</a>
+    </div>
+  </noscript>
+</div>
+
+<div class="avatar-foot">
+  <div class="wrap mono">
+    <span>{{avatar.foot}}</span>
+    <a href="{{avatar_url}}" target="_blank" rel="noopener">{{avatar.open_direct}}</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  // The twin runs on its own host; ?q=N on this page opens it on that FAQ answer.
+  var base = {{&avatar_url_json}};
+  var q = new URLSearchParams(window.location.search).get('q');
+  var frame = document.getElementById('twin-frame');
+  frame.src = q ? base + '?q=' + encodeURIComponent(q) : base;
+})();
+</script>
+</body>
+</html>

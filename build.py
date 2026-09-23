@@ -24,6 +24,10 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SITE = "https://sergeimaslennikov.com"
 
+# Where the digital twin runs. Change this one line to the custom domain once
+# avatar.sergeimaslennikov.com has its Fly certificate; nothing else moves.
+AVATAR_URL = "https://avatar-sergei.fly.dev/"
+
 # Archivo and Newsreader carry no Cyrillic, so the Russian page uses two
 # families that do. Both are close in feel to the originals.
 FONTS_LATIN = (
@@ -54,8 +58,22 @@ LANGS = [
 # toggle and no alternates.
 BUILD = ["en"]
 
+PARTIAL = re.compile(r"\{\{>(\w[\w-]*)\}\}")
 SECTION = re.compile(r"\{\{#([\w.]+)\}\}")
 VALUE = re.compile(r"\{\{(&?)([\w.]+|\.)\}\}")
+
+
+def expand_partials(template, seen=()):
+    """Replace {{>name}} with partials/name.html, before anything else runs."""
+
+    def one(match):
+        name = match.group(1)
+        if name in seen:
+            raise ValueError("partial %s includes itself" % name)
+        text = (ROOT / "partials" / ("%s.html" % name)).read_text(encoding="utf-8")
+        return expand_partials(text, seen + (name,))
+
+    return PARTIAL.sub(one, template)
 
 
 def lookup(stack, path):
@@ -86,6 +104,8 @@ def render(template, stack):
         if isinstance(value, list):
             for item in value:
                 out.append(render(body, stack + [item]))
+        elif isinstance(value, dict):
+            out.append(render(body, stack + [value]))
         elif value:
             out.append(render(body, stack))
 
@@ -134,6 +154,9 @@ def prepare(code, content):
             "" if link["href"].startswith("mailto:") else ' target="_blank" rel="noopener"'
         )
     path, og_locale, fonts = next((p, o, f) for c, _, p, o, f in LANGS if c == code)
+    for item in content["nav"]:
+        # section links are in-page on the home page, back to it everywhere else
+        item["href"] = "#" + item["id"]
     built = [lang for lang in LANGS if lang[0] in BUILD]
     toggle = [
         {
@@ -150,7 +173,9 @@ def prepare(code, content):
         canonical=SITE + path,
         og_locale=og_locale,
         fonts=fonts,
-        nav_class="" if len(built) > 1 else " nav-solo",
+        avatar_url=AVATAR_URL,
+        avatar_url_json=json.dumps(AVATAR_URL),
+        avatar_current="",
         langs={"items": toggle} if len(built) > 1 else None,
         alternates=(
             [{"hreflang": c, "href": SITE + p} for c, _, p, _, _ in built]
@@ -163,7 +188,11 @@ def prepare(code, content):
 
 
 def main():
-    template = (ROOT / "template.html").read_text(encoding="utf-8")
+    head_pages = [
+        # template, output path under public/, where the page's own title lives
+        ("template.html", "%s", None),
+        ("template-avatar.html", "%savatar/", "avatar"),
+    ]
     for code, _, path, _, _ in LANGS:
         if code not in BUILD:
             continue
@@ -171,11 +200,31 @@ def main():
         if not source.exists():
             print("skipping %s (no %s yet)" % (code, source.name))
             continue
-        content = prepare(code, json.loads(source.read_text(encoding="utf-8")))
-        target = ROOT / "public" / path.strip("/") / "index.html"
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(render(template, [content]), encoding="utf-8")
-        print("wrote %s" % target.relative_to(ROOT))
+        base = json.loads(source.read_text(encoding="utf-8"))
+        for template_name, page_path, meta_key in head_pages:
+            content = prepare(code, json.loads(json.dumps(base)))
+            here = page_path % path
+            meta = content[meta_key] if meta_key else content
+            content["page"] = {
+                "title": meta["title"],
+                "description": meta["description"],
+                "canonical": SITE + here,
+            }
+            if meta_key == "avatar":
+                content["avatar_current"] = ' aria-current="page"'
+                for item in content["nav"]:
+                    item["href"] = path + "#" + item["id"]
+            template = expand_partials(
+                (ROOT / template_name).read_text(encoding="utf-8")
+            )
+            target = ROOT / "public" / here.strip("/") / "index.html"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(render(template, [content]), encoding="utf-8")
+            print("wrote %s" % target.relative_to(ROOT))
+
+    style = (ROOT / "assets" / "style.css").read_text(encoding="utf-8")
+    (ROOT / "public" / "style.css").write_text(style, encoding="utf-8")
+    print("wrote public/style.css")
 
 
 if __name__ == "__main__":
