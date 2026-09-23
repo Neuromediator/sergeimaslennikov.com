@@ -1,0 +1,817 @@
+<title>Sergei Maslennikov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+
+<style>
+/* ───────────────────────── tokens ───────────────────────── */
+:root{
+  --bg:        #E4E1D9;
+  --bg-raised: #EFEDE7;
+  --fg:        #191B1C;
+  --fg-muted:  #5E5C55;
+  --fg-faint:  #918D83;
+  --rule:      rgba(25,27,28,.16);
+  --rule-soft: rgba(25,27,28,.09);
+  --accent:    #5F6B39;
+  --accent-ink:#F2EDE2;
+
+  /* fixed dark bands — identical in both themes */
+  --ink:       #141517;
+  --ink-2:     #1C1E20;
+  --bone:      #F2EDE2;
+  --bone-dim:  #A6A197;
+  --moss:      #AEBB82;
+  --ink-rule:  rgba(242,237,226,.15);
+
+  --rail: 208px;
+  --gap: 44px;
+  --max: 1120px;
+
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:        #131415;
+    --bg-raised: #1B1D1E;
+    --fg:        #E7E3D9;
+    --fg-muted:  #A19C92;
+    --fg-faint:  #7C776E;
+    --rule:      rgba(231,227,217,.17);
+    --rule-soft: rgba(231,227,217,.09);
+    --accent:    #AEBB82;
+    --accent-ink:#141517;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:        #131415;
+  --bg-raised: #1B1D1E;
+  --fg:        #E7E3D9;
+  --fg-muted:  #A19C92;
+  --fg-faint:  #7C776E;
+  --rule:      rgba(231,227,217,.17);
+  --rule-soft: rgba(231,227,217,.09);
+  --accent:    #AEBB82;
+  --accent-ink:#141517;
+}
+
+/* ───────────────────────── base ───────────────────────── */
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:24px}
+
+.mono{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+h1,h2,h3{margin:0;font-family:var(--f-display);text-wrap:balance}
+
+/* ───────────────────────── hero ───────────────────────── */
+.hero{
+  background:var(--ink);
+  color:var(--bone);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(242,237,226,.05) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(0deg,  rgba(242,237,226,.05) 0 1px, transparent 1px 56px);
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 384px;
+  gap:56px;
+  align-items:end;
+  padding-block:64px 0;
+  min-height:600px;
+}
+.hero-type{padding-bottom:64px}
+
+.eyebrow{color:var(--moss);display:block;margin-bottom:26px}
+.eyebrow .dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--moss);margin-right:9px;vertical-align:2px;
+}
+h1{
+  font-variation-settings:"wdth" 118,"wght" 700;
+  font-size:clamp(2.55rem,7.4vw,5.1rem);
+  line-height:.92;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
+}
+h1 .surname{
+  display:block;
+  font-variation-settings:"wdth" 118,"wght" 350;
+  color:var(--bone-dim);
+}
+.hero-rule{
+  height:1px;background:var(--ink-rule);
+  margin-block:32px 26px;
+}
+.lede{
+  font-size:clamp(1.12rem,2.1vw,1.32rem);
+  line-height:1.5;
+  max-width:34ch;
+  color:var(--bone);
+}
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+  margin-top:30px;color:var(--bone-dim);
+}
+.meta span{white-space:nowrap}
+
+.hero-photo{
+  align-self:end;
+  position:relative;
+  aspect-ratio:4/5;
+  width:100%;
+}
+.hero-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:50% 42%;
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, var(--ink) 0%, rgba(20,21,23,0) 22%);
+  pointer-events:none;
+}
+
+/* status strip */
+.status{
+  background:var(--ink-2);
+  color:var(--bone);
+  border-top:1px solid var(--ink-rule);
+}
+.status .wrap{
+  display:flex;flex-wrap:wrap;gap:10px 28px;
+  align-items:baseline;
+  padding-block:16px;
+}
+.status .k{color:var(--moss)}
+.status .v{color:var(--bone);letter-spacing:.06em}
+
+/* ───────────────────────── nav ───────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:var(--ink);
+  border-bottom:1px solid var(--ink-rule);
+}
+.nav .wrap{
+  display:flex;align-items:center;gap:26px;
+  padding-block:13px;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{
+  color:var(--bone-dim);
+  text-decoration:none;
+  white-space:nowrap;
+  padding-bottom:4px;
+  border-bottom:1px solid transparent;
+  transition:color .18s ease,border-color .18s ease;
+}
+.nav a:hover{color:var(--bone)}
+.nav a[aria-current="true"]{color:var(--moss);border-bottom-color:var(--moss)}
+.nav::after{ /* edge fade when the bar scrolls on narrow screens */
+  content:"";position:absolute;top:0;bottom:1px;right:0;width:34px;
+  background:linear-gradient(90deg,rgba(20,21,23,0),var(--ink));
+  pointer-events:none;
+}
+
+/* ───────────────────────── sections ───────────────────────── */
+section{border-top:1px solid var(--rule-soft)}
+section,footer.contact{scroll-margin-top:52px}
+.sec{
+  display:grid;
+  grid-template-columns:var(--rail) minmax(0,1fr);
+  gap:var(--gap);
+  padding-block:72px;
+}
+h2{
+  font-variation-settings:"wdth" 110,"wght" 600;
+  font-size:clamp(1.32rem,2.4vw,1.7rem);
+  line-height:1.08;
+  text-transform:uppercase;
+  letter-spacing:.008em;
+  padding-top:3px;
+}
+.prose{max-width:62ch}
+.prose p{margin:0 0 1.05em}
+.prose p:last-child{margin-bottom:0}
+
+/* ───────────────────────── history ───────────────────────── */
+.track{display:flex;flex-direction:column}
+.leg{
+  display:grid;
+  grid-template-columns:132px minmax(0,1fr);
+  gap:24px;
+  padding-block:22px;
+  border-top:1px solid var(--rule-soft);
+}
+.leg:first-child{border-top:0;padding-top:0}
+.leg .when{color:var(--fg-faint);padding-top:6px;white-space:nowrap}
+.leg h3{
+  font-variation-settings:"wdth" 100,"wght" 600;
+  font-size:1.04rem;letter-spacing:.01em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.leg p{margin:0;color:var(--fg-muted);max-width:58ch}
+.leg.pivot h3{color:var(--accent)}
+.leg.pivot p{
+  border-left:2px solid var(--accent);
+  padding-left:18px;
+  color:var(--fg);
+}
+
+/* ───────────────────────── projects ───────────────────────── */
+.projects{display:flex;flex-direction:column}
+.proj{
+  display:grid;
+  grid-template-columns:132px minmax(0,1fr);
+  gap:24px;
+  padding:26px 20px 26px 16px;
+  margin-left:-16px;
+  border-top:1px solid var(--rule-soft);
+  border-left:2px solid transparent;
+  transition:background .22s ease, border-color .22s ease;
+}
+.proj:first-child{border-top:0}
+.proj:hover{background:var(--bg-raised);border-left-color:var(--accent)}
+.proj .when{color:var(--fg-faint);padding-top:6px}
+.proj h3{
+  font-variation-settings:"wdth" 104,"wght" 600;
+  font-size:1.24rem;line-height:1.16;
+  text-transform:uppercase;letter-spacing:.005em;
+  margin-bottom:9px;
+}
+.proj p{margin:0;color:var(--fg-muted);max-width:60ch}
+.proj .caveat{
+  display:block;margin-top:8px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--fg-faint);
+}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.links a{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  text-decoration:none;
+  border:1px solid var(--rule);
+  padding:7px 13px;
+  color:var(--fg-muted);
+  transition:color .18s ease,border-color .18s ease,background .18s ease;
+}
+.links a:hover{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+
+/* ───────────────────────── skills ───────────────────────── */
+.caps{display:flex;flex-direction:column;gap:26px}
+.cap-group{
+  display:grid;
+  grid-template-columns:132px minmax(0,1fr);
+  gap:24px;
+  align-items:start;
+}
+.cap-group > .mono{color:var(--fg-faint);padding-top:5px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags span{
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.02em;
+  border:1px solid var(--rule);
+  padding:5px 11px;
+  color:var(--fg);
+}
+.tags span.key{border-color:var(--accent);color:var(--accent)}
+
+/* ───────────────────────── education ───────────────────────── */
+.study{display:flex;flex-direction:column}
+.item{
+  display:grid;
+  grid-template-columns:132px minmax(0,1fr);
+  gap:24px;
+  padding-block:17px;
+  border-top:1px solid var(--rule-soft);
+}
+.item:first-child{border-top:0;padding-top:0}
+.item .when{color:var(--fg-faint);padding-top:4px;white-space:nowrap}
+.item .what{font-size:1.02rem}
+.item .who{display:block;color:var(--fg-faint);font-size:.92rem}
+
+/* ───────────────────────── personal ───────────────────────── */
+.facts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(248px,1fr));
+  gap:0 44px;
+}
+.fact{padding-block:15px;border-top:1px solid var(--rule-soft)}
+.fact dt{color:var(--fg-faint);margin-bottom:5px}
+.fact dd{margin:0;color:var(--fg);line-height:1.45}
+
+/* ───────────────────────── contact ───────────────────────── */
+.contact{background:var(--ink);color:var(--bone);border-top:0}
+.contact h2{color:var(--bone)}
+.reach{display:flex;flex-direction:column;border-top:1px solid var(--ink-rule)}
+.reach a{
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+  text-decoration:none;
+  padding-block:14px;
+  border-bottom:1px solid var(--ink-rule);
+  transition:padding-left .2s ease,color .2s ease;
+}
+.reach a:hover{padding-left:12px;color:var(--moss)}
+.reach .label{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--bone-dim);
+  width:104px;flex:none;
+}
+.reach .val{
+  font-family:var(--f-display);
+  font-variation-settings:"wdth" 100,"wght" 500;
+  font-size:clamp(1rem,2.2vw,1.2rem);
+  letter-spacing:.005em;
+  word-break:break-word;
+}
+.colophon{
+  border-top:1px solid var(--ink-rule);
+  color:var(--bone-dim);
+  padding-block:20px 30px;
+}
+
+/* ───────────────────────── responsive ───────────────────────── */
+@media (max-width:940px){
+  .hero-inner{grid-template-columns:1fr;gap:0;min-height:0;padding-block:52px 0}
+  .hero-type{padding-bottom:44px}
+  .hero-photo{max-width:420px}
+  .hero-photo::after{background:linear-gradient(0deg, rgba(20,21,23,0) 70%, var(--ink) 100%)}
+  .sec{grid-template-columns:1fr;gap:22px;padding-block:56px}
+  h2{padding-top:0}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding-inline:20px}
+  h1{font-size:clamp(1.95rem,9.6vw,2.9rem);font-variation-settings:"wdth" 104,"wght" 700}
+  h1 .surname{font-variation-settings:"wdth" 104,"wght" 350}
+  .hero-inner{padding-block:40px 0}
+  .hero-type{padding-bottom:36px}
+  .eyebrow{margin-bottom:20px}
+  .hero-rule{margin-block:26px 22px}
+  .lede{max-width:none}
+  .meta{margin-top:22px}
+  .hero-photo{max-width:none}
+  .status .wrap{display:block;padding-block:14px}
+  .status .k{display:block;margin-bottom:4px}
+  .status .v{letter-spacing:.04em;line-height:1.5}
+  .nav .wrap{gap:20px;padding-inline:20px}
+  .sec{padding-block:44px;gap:18px}
+  .leg,.proj,.cap-group,.item{grid-template-columns:1fr;gap:8px}
+  .leg .when:empty{display:none}
+  .leg{padding-block:20px}
+  .proj{padding:20px 14px;margin-left:-14px}
+  .leg .when,.item .when,.proj .when{padding-top:0}
+  .leg p,.proj p{max-width:none}
+  .leg.pivot p{padding-left:14px}
+  .cap-group{gap:12px}
+  .facts{gap:0}
+  .reach a{gap:2px;padding-block:13px}
+  .reach .label{width:auto}
+  .reach .val{font-size:1.02rem}
+}
+
+/* ───────────────────────── motion ───────────────────────── */
+@media (prefers-reduced-motion: no-preference){
+  html{scroll-behavior:smooth}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes wipe{from{transform:scaleX(0)}to{transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .hero .eyebrow{animation:rise .5s cubic-bezier(.2,.7,.3,1) backwards}
+  .hero h1{animation:rise .56s cubic-bezier(.2,.7,.3,1) 80ms backwards}
+  .hero-rule{animation:wipe .5s cubic-bezier(.2,.7,.3,1) 220ms backwards;transform-origin:left}
+  .hero .lede{animation:rise .5s cubic-bezier(.2,.7,.3,1) 280ms backwards}
+  .hero .meta{animation:rise .5s cubic-bezier(.2,.7,.3,1) 350ms backwards}
+  .hero-photo{animation:fade .7s ease 140ms backwards}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-type">
+      <span class="mono eyebrow"><span class="dot"></span>Tallinn, Estonia</span>
+      <h1>Sergei<span class="surname">Maslennikov</span></h1>
+      <div class="hero-rule"></div>
+      <p class="lede">
+        LLM engineer and AI practitioner. I build applied AI systems — RAG
+        pipelines, agent workflows, LLM-powered products.
+      </p>
+      <div class="mono meta">
+        <span>From Pärnu</span>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="img/hero.jpg" alt="Sergei Maslennikov." width="1000" height="1250">
+    </figure>
+  </div>
+</header>
+
+<div class="status">
+  <div class="wrap mono">
+    <span class="k">Current status</span>
+    <span class="v">Building skills to enter the tech job market — Estonia first, EU in general</span>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap mono">
+    <a href="#about">About</a>
+    <a href="#work">Work history</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#outside">Outside work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="about">
+    <div class="wrap sec">
+      <h2>About</h2>
+      <div class="prose">
+        <p>
+          I am Sergei Maslennikov. I am from Pärnu, a small Estonian town, and
+          I am currently in Tallinn.
+        </p>
+        <p>
+          I identify myself as an LLM engineer and AI practitioner. I build my
+          own pet projects and applied AI systems — RAG pipelines, agent
+          workflows, LLM-powered products. I am working to build skills
+          sufficient to enter the tech job market, in Estonia first and the EU
+          in general.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap sec">
+      <h2>Work history</h2>
+      <div class="track">
+
+        <article class="leg">
+          <div class="mono when">2006 — 2011</div>
+          <div>
+            <h3>Bachelor of Marine Navigation</h3>
+            <p>TalTech Estonian Maritime Academy.</p>
+          </div>
+        </article>
+
+        <article class="leg">
+          <div class="mono when"></div>
+          <div>
+            <h3>Navigation Officer</h3>
+            <p>After graduating from the Maritime Academy I worked as a
+              navigation officer for several years.</p>
+          </div>
+        </article>
+
+        <article class="leg">
+          <div class="mono when"></div>
+          <div>
+            <h3>Independent Quantitative Analyst · Sports Markets</h3>
+            <p>Self-directed, for many years, mainly tennis. The work: feature
+              engineering from match data, probabilistic decision-making with
+              real money on the line, continuous model evaluation under
+              uncertainty. The skills that came out of it — Bayesian reasoning,
+              risk management, checking whether a model is actually right or
+              just looks right.</p>
+          </div>
+        </article>
+
+        <article class="leg pivot">
+          <div class="mono when">End of 2024</div>
+          <div>
+            <h3>A break</h3>
+            <p>I decided to take a break and reconsider my views on life,
+              because I no longer saw meaning or value in what I was doing.</p>
+          </div>
+        </article>
+
+        <article class="leg">
+          <div class="mono when">Now</div>
+          <div>
+            <h3>LLM Engineer · AI Practitioner</h3>
+            <p>Building pet projects and applied AI systems — RAG pipelines,
+              agent workflows, LLM-powered products.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap sec">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="proj">
+          <div class="mono when">Aug 2026</div>
+          <div>
+            <h3>Autonomous Trading Floor</h3>
+            <p>An equity trading simulation where four autonomous LLM agents
+              manage virtual portfolios: researching the market, executing
+              trades, and rewriting their own strategies based on how their past
+              trades performed. Built on the Model Context Protocol and the
+              OpenAI Agents SDK, with a FastAPI backend and a Vite/TypeScript
+              dashboard.</p>
+            <div class="links">
+              <a href="https://trading-floor.duckdns.org/" target="_blank" rel="noopener">Live</a>
+              <a href="https://github.com/Neuromediator/autonomous-trading-floor" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="mono when">Jun — Jul 2026</div>
+          <div>
+            <h3>Tennis Match Research Dashboard</h3>
+            <p>LLM agent engineering on a real domain. The dashboard renders
+              four independent signals side by side for every upcoming ATP / WTA
+              tour-level singles match — market consensus odds, a trained
+              LightGBM probability, a surface-Elo baseline, an LLM-discovered
+              news block — plus a deterministic “why model differs” panel
+              whenever the model-vs-market gap exceeds 10pp. The purpose of the
+              project is to demonstrate end-to-end ML + LLM engineering: data
+              ingestion, feature engineering, model training, evaluation, LLM
+              tool-calling integration, deployable interface.</p>
+            <span class="caveat">Not a betting tool</span>
+            <div class="links">
+              <a href="https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard" target="_blank" rel="noopener">Live</a>
+              <a href="https://github.com/Neuromediator/Tennis-Match-Research-Dashboard" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="mono when">Aug 2026</div>
+          <div>
+            <h3>Engineering Team</h3>
+            <p>A CrewAI crew that designs, builds, tests and independently
+              inspects a Python product from plain-English requirements — with a
+              bounded revision loop and a human gate before it ships.</p>
+            <div class="links">
+              <a href="https://huggingface.co/spaces/Neuromediator/engineering-team" target="_blank" rel="noopener">Live</a>
+              <a href="https://github.com/Neuromediator/engineering-team" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="mono when">Mar 2026</div>
+          <div>
+            <h3>Workout Tracker</h3>
+            <p>A workout tracking web app with AI Assistant that just works.
+              Everything you need to log your workouts and smash your goals.</p>
+            <div class="links">
+              <a href="https://myfitnesspal.online/" target="_blank" rel="noopener">Live</a>
+              <a href="https://github.com/Neuromediator/workout-tracker" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap sec">
+      <h2>Top skills</h2>
+      <div class="caps">
+
+        <div class="cap-group">
+          <div class="mono">AI</div>
+          <div class="tags">
+            <span class="key">Artificial Intelligence</span>
+            <span class="key">LLM engineering</span>
+            <span class="key">LLM agents</span>
+            <span class="key">Python</span>
+            <span>RAG</span>
+            <span>QLoRA</span>
+            <span>Model Context Protocol</span>
+            <span>OpenAI Agents SDK</span>
+            <span>CrewAI</span>
+            <span>FastAPI</span>
+            <span>LightGBM</span>
+            <span>Vite / TypeScript</span>
+            <span>AI tools</span>
+          </div>
+        </div>
+
+        <div class="cap-group">
+          <div class="mono">Agentic engineering</div>
+          <div class="tags">
+            <span>Claude Code</span>
+            <span>Codex</span>
+            <span>OpenCode</span>
+          </div>
+        </div>
+
+        <div class="cap-group">
+          <div class="mono">Analysis</div>
+          <div class="tags">
+            <span class="key">Data analysis</span>
+            <span class="key">Data analytics</span>
+            <span>Analytical thinking</span>
+            <span>Critical thinking</span>
+            <span>Data-driven decision making</span>
+          </div>
+        </div>
+
+        <div class="cap-group">
+          <div class="mono">Languages</div>
+          <div class="tags">
+            <span>Russian — native</span>
+            <span>English</span>
+            <span>Estonian</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap sec">
+      <h2>Education</h2>
+      <div class="study">
+
+        <div class="item">
+          <div class="mono when">Mar 2026</div>
+          <div>
+            <span class="what">AI Coder: Vibe Coder to Agentic Engineer</span>
+            <span class="who">Udemy · Ed Donner</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="mono when">Oct 2025 — Feb 2026</div>
+          <div>
+            <span class="what">AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents</span>
+            <span class="who">Udemy · Ed Donner · certification</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="mono when">Nov 2025</div>
+          <div>
+            <span class="what">Python Data Science: Data Prep &amp; EDA with Python</span>
+            <span class="who">Udemy · Alice Zhao, Maven Analytics</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="mono when">May — Oct 2025</div>
+          <div>
+            <span class="what">Google Data Analytics Professional Certificate</span>
+            <span class="who">Coursera · certification</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="mono when">Jun 2025</div>
+          <div>
+            <span class="what">Practical Python Course: from Basics to Advanced</span>
+            <span class="who">Wexler.io · Egor Wexler</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="mono when">2006 — 2011</div>
+          <div>
+            <span class="what">Bachelor of Marine Navigation</span>
+            <span class="who">TalTech Estonian Maritime Academy</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="outside">
+    <div class="wrap sec">
+      <h2>Outside work</h2>
+      <div>
+        <div class="prose" style="margin-bottom:28px">
+          <p>
+            20 years of almost daily training — mainly in the gym, but also
+            functional training like HIIT and CrossFit, or just walking in the
+            forest. No smoking, no alcohol, healthy diet. I don't eat anything
+            sweet other than fruit.
+          </p>
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt class="mono">Training</dt><dd>20 years, almost daily. Gym, HIIT, CrossFit.</dd></div>
+          <div class="fact"><dt class="mono">Diet</dt><dd>No smoking, no alcohol, nothing sweet other than fruit.</dd></div>
+          <div class="fact"><dt class="mono">Time off</dt><dd>Walking alone in nature. Meditation.</dd></div>
+          <div class="fact"><dt class="mono">Attention</dt><dd>Strict information hygiene — I consider time and attention my most valuable resources.</dd></div>
+          <div class="fact"><dt class="mono">Interested in</dt><dd>Fitness and sport, data analytics, neurobiology, Stoicism.</dd></div>
+          <div class="fact"><dt class="mono">School</dt><dd>Straight-A student. Not sure if that counts as a good thing.</dd></div>
+          <div class="fact"><dt class="mono">Film</dt><dd>Interstellar, by Christopher Nolan.</dd></div>
+          <div class="fact"><dt class="mono">Sportsman</dt><dd>Andy Murray.</dd></div>
+          <div class="fact"><dt class="mono">Role model</dt><dd>Pavel Durov.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap sec">
+    <h2>Contact</h2>
+    <nav class="reach">
+      <a href="mailto:sergeimaslennikov89@gmail.com">
+        <span class="label">Email</span>
+        <span class="val">sergeimaslennikov89@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/sergei-maslennikov-ai" target="_blank" rel="noopener">
+        <span class="label">LinkedIn</span>
+        <span class="val">/in/sergei-maslennikov-ai</span>
+      </a>
+      <a href="https://github.com/Neuromediator" target="_blank" rel="noopener">
+        <span class="label">GitHub</span>
+        <span class="val">github.com/Neuromediator</span>
+      </a>
+      <a href="https://huggingface.co/Neuromediator" target="_blank" rel="noopener">
+        <span class="label">Hugging Face</span>
+        <span class="val">huggingface.co/Neuromediator</span>
+      </a>
+    </nav>
+  </div>
+  <div class="wrap mono colophon">
+    <span>Sergei Maslennikov — Tallinn, Estonia</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.nav a'));
+  if (!links.length) return;
+  var bar = document.querySelector('.nav .wrap');
+  var items = links.map(function (a) {
+    return { link: a, el: document.getElementById(a.getAttribute('href').slice(1)) };
+  }).filter(function (i) { return i.el; });
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var current = null;
+    items.forEach(function (i) {
+      if (i.el.getBoundingClientRect().top <= 90) current = i;
+    });
+    // the last section counts as current once the page bottoms out
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+      current = items[items.length - 1];
+    }
+    links.forEach(function (a) { a.removeAttribute('aria-current'); });
+    if (current) {
+      current.link.setAttribute('aria-current', 'true');
+      // keep the active item in view when the bar is scrollable
+      if (bar && bar.scrollWidth > bar.clientWidth) {
+        var l = current.link, left = l.offsetLeft, right = left + l.offsetWidth;
+        if (left < bar.scrollLeft + 20) bar.scrollLeft = left - 20;
+        else if (right > bar.scrollLeft + bar.clientWidth - 20) bar.scrollLeft = right - bar.clientWidth + 20;
+      }
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();
+</script>

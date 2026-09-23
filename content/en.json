@@ -1,0 +1,225 @@
+{
+  "title": "Sergei Maslennikov",
+  "description": "Sergei Maslennikov — LLM engineer and AI practitioner in Tallinn, Estonia. RAG pipelines, agent workflows, LLM-powered products.",
+  "labels": {
+    "sections": "Sections",
+    "language": "Language",
+    "live": "Live",
+    "code": "Code"
+  },
+  "hero": {
+    "eyebrow": "Tallinn, Estonia",
+    "given": "Sergei",
+    "surname": "Maslennikov",
+    "lede": "LLM engineer and AI practitioner. I build applied AI systems — RAG pipelines, agent workflows, LLM-powered products.",
+    "meta": "From Pärnu",
+    "photo_alt": "Sergei Maslennikov."
+  },
+  "status": {
+    "label": "Current status",
+    "value": "Building skills to enter the tech job market — Estonia first, EU in general"
+  },
+  "nav": [
+    { "id": "about", "label": "About" },
+    { "id": "work", "label": "Work history" },
+    { "id": "projects", "label": "Projects" },
+    { "id": "skills", "label": "Skills" },
+    { "id": "education", "label": "Education" },
+    { "id": "outside", "label": "Outside work" },
+    { "id": "contact", "label": "Contact" }
+  ],
+  "about": {
+    "title": "About",
+    "paragraphs": [
+      "I am Sergei Maslennikov. I am from Pärnu, a small Estonian town, and I am currently in Tallinn.",
+      "I identify myself as an LLM engineer and AI practitioner. I build my own pet projects and applied AI systems — RAG pipelines, agent workflows, LLM-powered products. I am working to build skills sufficient to enter the tech job market, in Estonia first and the EU in general."
+    ]
+  },
+  "work": {
+    "title": "Work history",
+    "legs": [
+      {
+        "when": "2006 — 2011",
+        "role": "Bachelor of Marine Navigation",
+        "body": "TalTech Estonian Maritime Academy."
+      },
+      {
+        "when": "",
+        "role": "Navigation Officer",
+        "body": "After graduating from the Maritime Academy I worked as a navigation officer for several years."
+      },
+      {
+        "when": "",
+        "role": "Independent Quantitative Analyst · Sports Markets",
+        "body": "Self-directed, for many years, mainly tennis. The work: feature engineering from match data, probabilistic decision-making with real money on the line, continuous model evaluation under uncertainty. The skills that came out of it — Bayesian reasoning, risk management, checking whether a model is actually right or just looks right."
+      },
+      {
+        "when": "End of 2024",
+        "role": "A break",
+        "body": "I decided to take a break and reconsider my views on life, because I no longer saw meaning or value in what I was doing.",
+        "pivot": true
+      },
+      {
+        "when": "Now",
+        "role": "LLM Engineer · AI Practitioner",
+        "body": "Building pet projects and applied AI systems — RAG pipelines, agent workflows, LLM-powered products."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "when": "Aug 2026",
+        "name": "Autonomous Trading Floor",
+        "body": "An equity trading simulation where four autonomous LLM agents manage virtual portfolios: researching the market, executing trades, and rewriting their own strategies based on how their past trades performed. Built on the Model Context Protocol and the OpenAI Agents SDK, with a FastAPI backend and a Vite/TypeScript dashboard.",
+        "caveat": "",
+        "live": "https://trading-floor.duckdns.org/",
+        "code": "https://github.com/Neuromediator/autonomous-trading-floor"
+      },
+      {
+        "when": "Jun — Jul 2026",
+        "name": "Tennis Match Research Dashboard",
+        "body": "LLM agent engineering on a real domain. The dashboard renders four independent signals side by side for every upcoming ATP / WTA tour-level singles match — market consensus odds, a trained LightGBM probability, a surface-Elo baseline, an LLM-discovered news block — plus a deterministic “why model differs” panel whenever the model-vs-market gap exceeds 10pp. The purpose of the project is to demonstrate end-to-end ML + LLM engineering: data ingestion, feature engineering, model training, evaluation, LLM tool-calling integration, deployable interface.",
+        "caveat": "Not a betting tool",
+        "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
+        "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
+      },
+      {
+        "when": "Aug 2026",
+        "name": "Engineering Team",
+        "body": "A CrewAI crew that designs, builds, tests and independently inspects a Python product from plain-English requirements — with a bounded revision loop and a human gate before it ships.",
+        "caveat": "",
+        "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
+        "code": "https://github.com/Neuromediator/engineering-team"
+      },
+      {
+        "when": "Mar 2026",
+        "name": "Workout Tracker",
+        "body": "A workout tracking web app with AI Assistant that just works. Everything you need to log your workouts and smash your goals.",
+        "caveat": "",
+        "live": "https://myfitnesspal.online/",
+        "code": "https://github.com/Neuromediator/workout-tracker"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Top skills",
+    "groups": [
+      {
+        "group": "AI",
+        "tags": [
+          { "label": "Artificial Intelligence", "key": true },
+          { "label": "LLM engineering", "key": true },
+          { "label": "LLM agents", "key": true },
+          { "label": "Python", "key": true },
+          "RAG",
+          "QLoRA",
+          "Model Context Protocol",
+          "OpenAI Agents SDK",
+          "CrewAI",
+          "FastAPI",
+          "LightGBM",
+          "Vite / TypeScript",
+          "AI tools"
+        ]
+      },
+      {
+        "group": "Agentic engineering",
+        "tags": ["Claude Code", "Codex", "OpenCode"]
+      },
+      {
+        "group": "Analysis",
+        "tags": [
+          { "label": "Data analysis", "key": true },
+          { "label": "Data analytics", "key": true },
+          "Analytical thinking",
+          "Critical thinking",
+          "Data-driven decision making"
+        ]
+      },
+      {
+        "group": "Languages",
+        "tags": ["Russian — native", "English", "Estonian"]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "when": "Mar 2026",
+        "what": "AI Coder: Vibe Coder to Agentic Engineer",
+        "who": "Udemy · Ed Donner"
+      },
+      {
+        "when": "Oct 2025 — Feb 2026",
+        "what": "AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents",
+        "who": "Udemy · Ed Donner · certification"
+      },
+      {
+        "when": "Nov 2025",
+        "what": "Python Data Science: Data Prep & EDA with Python",
+        "who": "Udemy · Alice Zhao, Maven Analytics"
+      },
+      {
+        "when": "May — Oct 2025",
+        "what": "Google Data Analytics Professional Certificate",
+        "who": "Coursera · certification"
+      },
+      {
+        "when": "Jun 2025",
+        "what": "Practical Python Course: from Basics to Advanced",
+        "who": "Wexler.io · Egor Wexler"
+      },
+      {
+        "when": "2006 — 2011",
+        "what": "Bachelor of Marine Navigation",
+        "who": "TalTech Estonian Maritime Academy"
+      }
+    ]
+  },
+  "outside": {
+    "title": "Outside work",
+    "paragraphs": [
+      "20 years of almost daily training — mainly in the gym, but also functional training like HIIT and CrossFit, or just walking in the forest. No smoking, no alcohol, healthy diet. I don't eat anything sweet other than fruit."
+    ],
+    "facts": [
+      { "term": "Training", "def": "20 years, almost daily. Gym, HIIT, CrossFit." },
+      { "term": "Diet", "def": "No smoking, no alcohol, nothing sweet other than fruit." },
+      { "term": "Time off", "def": "Walking alone in nature. Meditation." },
+      { "term": "Attention", "def": "Strict information hygiene — I consider time and attention my most valuable resources." },
+      { "term": "Interested in", "def": "Fitness and sport, data analytics, neurobiology, Stoicism." },
+      { "term": "School", "def": "Straight-A student. Not sure if that counts as a good thing." },
+      { "term": "Film", "def": "Interstellar, by Christopher Nolan." },
+      { "term": "Sportsman", "def": "Andy Murray." },
+      { "term": "Role model", "def": "Pavel Durov." }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "links": [
+      {
+        "label": "Email",
+        "val": "sergeimaslennikov89@gmail.com",
+        "href": "mailto:sergeimaslennikov89@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "val": "/in/sergei-maslennikov-ai",
+        "href": "https://www.linkedin.com/in/sergei-maslennikov-ai"
+      },
+      {
+        "label": "GitHub",
+        "val": "github.com/Neuromediator",
+        "href": "https://github.com/Neuromediator"
+      },
+      {
+        "label": "Hugging Face",
+        "val": "huggingface.co/Neuromediator",
+        "href": "https://huggingface.co/Neuromediator"
+      }
+    ]
+  },
+  "colophon": "Sergei Maslennikov — Tallinn, Estonia"
+}

@@ -1,0 +1,7 @@
+# the 26 MB camera original; public/img holds the resized versions the site uses
+DSC05785.jpg
+*.orig.jpg
+
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,225 @@
+{
+  "title": "Сергей Масленников",
+  "description": "Сергей Масленников — LLM-инженер и практик в области ИИ, Таллинн. RAG-конвейеры, агентные процессы, продукты на основе LLM.",
+  "labels": {
+    "sections": "Разделы",
+    "language": "Язык",
+    "live": "Смотреть",
+    "code": "Код"
+  },
+  "hero": {
+    "eyebrow": "Таллинн, Эстония",
+    "given": "Сергей",
+    "surname": "Масленников",
+    "lede": "LLM-инженер и практик в области ИИ. Строю прикладные ИИ-системы — RAG-конвейеры, агентные процессы, продукты на основе LLM.",
+    "meta": "Родом из Пярну",
+    "photo_alt": "Сергей Масленников."
+  },
+  "status": {
+    "label": "Текущий статус",
+    "value": "Набираю навыки, чтобы выйти на технологический рынок труда — сначала в Эстонии, шире — в ЕС"
+  },
+  "nav": [
+    { "id": "about", "label": "О себе" },
+    { "id": "work", "label": "Опыт" },
+    { "id": "projects", "label": "Проекты" },
+    { "id": "skills", "label": "Навыки" },
+    { "id": "education", "label": "Образование" },
+    { "id": "outside", "label": "Вне работы" },
+    { "id": "contact", "label": "Контакты" }
+  ],
+  "about": {
+    "title": "О себе",
+    "paragraphs": [
+      "Меня зовут Сергей Масленников. Я родом из Пярну, небольшого эстонского города, сейчас нахожусь в Таллинне.",
+      "Считаю себя LLM-инженером и практиком в области ИИ. Делаю собственные пет-проекты и прикладные ИИ-системы — RAG-конвейеры, агентные процессы, продукты на основе LLM. Набираю навыки, достаточные для выхода на технологический рынок труда — сначала в Эстонии, шире — в ЕС."
+    ]
+  },
+  "work": {
+    "title": "Опыт",
+    "legs": [
+      {
+        "when": "2006 — 2011",
+        "role": "Bachelor of Marine Navigation",
+        "body": "TalTech Estonian Maritime Academy."
+      },
+      {
+        "when": "",
+        "role": "Navigation Officer",
+        "body": "После окончания Морской академии несколько лет работал штурманом."
+      },
+      {
+        "when": "",
+        "role": "Independent Quantitative Analyst · Sports Markets",
+        "body": "Самостоятельно, много лет, в основном теннис. Работа: конструирование признаков из данных матчей, вероятностные решения с реальными деньгами, постоянная оценка моделей в условиях неопределённости. Навыки, которые из этого выросли, — байесовские рассуждения, управление риском, проверка того, действительно ли модель права или только выглядит правой."
+      },
+      {
+        "when": "Конец 2024",
+        "role": "Пауза",
+        "body": "Решил взять паузу и пересмотреть свои взгляды на жизнь, потому что перестал видеть смысл и ценность в том, чем занимался.",
+        "pivot": true
+      },
+      {
+        "when": "Сейчас",
+        "role": "LLM Engineer · AI Practitioner",
+        "body": "Делаю пет-проекты и прикладные ИИ-системы — RAG-конвейеры, агентные процессы, продукты на основе LLM."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Проекты",
+    "items": [
+      {
+        "when": "Авг 2026",
+        "name": "Autonomous Trading Floor",
+        "body": "Симуляция торговли акциями, где четыре автономных LLM-агента управляют виртуальными портфелями: исследуют рынок, совершают сделки и переписывают собственные стратегии по итогам того, как сработали их прошлые сделки. Построено на Model Context Protocol и OpenAI Agents SDK, с бэкендом на FastAPI и дашбордом на Vite/TypeScript.",
+        "caveat": "",
+        "live": "https://trading-floor.duckdns.org/",
+        "code": "https://github.com/Neuromediator/autonomous-trading-floor"
+      },
+      {
+        "when": "Июнь — июль 2026",
+        "name": "Tennis Match Research Dashboard",
+        "body": "Инженерия LLM-агентов на реальной предметной области. Дашборд показывает рядом четыре независимых сигнала для каждого предстоящего одиночного матча уровня тура ATP / WTA — консенсус рынка в коэффициентах, вероятность обученной модели LightGBM, базовый расчёт Elo по покрытию, новостной блок, найденный LLM, — плюс детерминированную панель «почему модель расходится», когда разрыв между моделью и рынком превышает 10 п.п. Цель проекта — показать сквозную ML- и LLM-инженерию: загрузка данных, конструирование признаков, обучение модели, оценка, интеграция вызова инструментов LLM, разворачиваемый интерфейс.",
+        "caveat": "Не инструмент для ставок",
+        "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
+        "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
+      },
+      {
+        "when": "Авг 2026",
+        "name": "Engineering Team",
+        "body": "Команда CrewAI, которая проектирует, собирает, тестирует и независимо проверяет продукт на Python по требованиям на обычном языке — с ограниченным циклом доработок и подтверждением человека перед выпуском.",
+        "caveat": "",
+        "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
+        "code": "https://github.com/Neuromediator/engineering-team"
+      },
+      {
+        "when": "Март 2026",
+        "name": "Workout Tracker",
+        "body": "Веб-приложение для учёта тренировок с ИИ-ассистентом, которое просто работает. Всё, что нужно, чтобы записывать тренировки и достигать целей.",
+        "caveat": "",
+        "live": "https://myfitnesspal.online/",
+        "code": "https://github.com/Neuromediator/workout-tracker"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Ключевые навыки",
+    "groups": [
+      {
+        "group": "ИИ",
+        "tags": [
+          { "label": "Искусственный интеллект", "key": true },
+          { "label": "LLM-инженерия", "key": true },
+          { "label": "LLM-агенты", "key": true },
+          { "label": "Python", "key": true },
+          "RAG",
+          "QLoRA",
+          "Model Context Protocol",
+          "OpenAI Agents SDK",
+          "CrewAI",
+          "FastAPI",
+          "LightGBM",
+          "Vite / TypeScript",
+          "ИИ-инструменты"
+        ]
+      },
+      {
+        "group": "Агентная инженерия",
+        "tags": ["Claude Code", "Codex", "OpenCode"]
+      },
+      {
+        "group": "Анализ",
+        "tags": [
+          { "label": "Анализ данных", "key": true },
+          { "label": "Аналитика данных", "key": true },
+          "Аналитическое мышление",
+          "Критическое мышление",
+          "Решения на основе данных"
+        ]
+      },
+      {
+        "group": "Языки",
+        "tags": ["Русский — родной", "Английский", "Эстонский"]
+      }
+    ]
+  },
+  "education": {
+    "title": "Образование",
+    "items": [
+      {
+        "when": "Март 2026",
+        "what": "AI Coder: Vibe Coder to Agentic Engineer",
+        "who": "Udemy · Ed Donner"
+      },
+      {
+        "when": "Окт 2025 — фев 2026",
+        "what": "AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents",
+        "who": "Udemy · Ed Donner · сертификат"
+      },
+      {
+        "when": "Ноя 2025",
+        "what": "Python Data Science: Data Prep & EDA with Python",
+        "who": "Udemy · Alice Zhao, Maven Analytics"
+      },
+      {
+        "when": "Май — окт 2025",
+        "what": "Google Data Analytics Professional Certificate",
+        "who": "Coursera · сертификат"
+      },
+      {
+        "when": "Июнь 2025",
+        "what": "Practical Python Course: from Basics to Advanced",
+        "who": "Wexler.io · Egor Wexler"
+      },
+      {
+        "when": "2006 — 2011",
+        "what": "Bachelor of Marine Navigation",
+        "who": "TalTech Estonian Maritime Academy"
+      }
+    ]
+  },
+  "outside": {
+    "title": "Вне работы",
+    "paragraphs": [
+      "20 лет почти ежедневных тренировок — в основном в зале, но также функциональные тренировки вроде HIIT и CrossFit или просто прогулки в лесу. Не курю, не пью алкоголь, здоровое питание. Не ем ничего сладкого, кроме фруктов."
+    ],
+    "facts": [
+      { "term": "Тренировки", "def": "20 лет, почти каждый день. Зал, HIIT, CrossFit." },
+      { "term": "Питание", "def": "Не курю, не пью алкоголь, ничего сладкого, кроме фруктов." },
+      { "term": "Отдых", "def": "Прогулки в одиночестве на природе. Медитация." },
+      { "term": "Внимание", "def": "Строгая информационная гигиена — считаю время и внимание своими самыми ценными ресурсами." },
+      { "term": "Интересы", "def": "Фитнес и спорт, аналитика данных, нейробиология, стоицизм." },
+      { "term": "Школа", "def": "Отличник. Не уверен, что это хорошо." },
+      { "term": "Фильм", "def": "Interstellar, Кристофер Нолан." },
+      { "term": "Спортсмен", "def": "Энди Маррей." },
+      { "term": "Пример", "def": "Павел Дуров." }
+    ]
+  },
+  "contact": {
+    "title": "Контакты",
+    "links": [
+      {
+        "label": "Почта",
+        "val": "sergeimaslennikov89@gmail.com",
+        "href": "mailto:sergeimaslennikov89@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "val": "/in/sergei-maslennikov-ai",
+        "href": "https://www.linkedin.com/in/sergei-maslennikov-ai"
+      },
+      {
+        "label": "GitHub",
+        "val": "github.com/Neuromediator",
+        "href": "https://github.com/Neuromediator"
+      },
+      {
+        "label": "Hugging Face",
+        "val": "huggingface.co/Neuromediator",
+        "href": "https://huggingface.co/Neuromediator"
+      }
+    ]
+  },
+  "colophon": "Сергей Масленников — Таллинн, Эстония"
+}
