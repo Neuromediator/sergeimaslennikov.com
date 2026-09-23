@@ -465,10 +465,11 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 }
 
 /* ───────────────────────── digital twin ───────────────────────── */
+/* Follows the theme: the ink bands are the hero and the contact footer, the
+   ends of the page. A dark block mid-page splits the light theme in half. */
 .twin{
-  background:var(--ink);
-  color:var(--bone);
-  border-top:1px solid var(--ink-rule);
+  background:var(--bg-raised);
+  border-top:1px solid var(--rule-soft);
 }
 .twin .wrap{
   display:grid;
@@ -476,27 +477,25 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   gap:var(--gap);
   padding-block:72px;
 }
-.twin h2{color:var(--bone)}
 /* body type, like the hero lede -- the heading carries the display font */
 .twin-line{
   margin:0 0 14px;
   font-size:clamp(1.12rem,2.1vw,1.34rem);
   line-height:1.5;
-  color:var(--bone);
   max-width:40ch;
 }
-.twin-note{margin:0;color:var(--bone-dim);max-width:60ch}
+.twin-note{margin:0;color:var(--fg-muted);max-width:60ch}
 .twin-cta{
   display:inline-flex;align-items:center;gap:10px;
   margin-top:24px;
   font-family:var(--f-mono);font-size:11px;
   letter-spacing:.13em;text-transform:uppercase;font-weight:500;
   text-decoration:none;
-  border:1px solid var(--moss);color:var(--moss);
+  border:1px solid var(--accent);color:var(--accent);
   padding:12px 18px;
   transition:background .18s ease,color .18s ease;
 }
-.twin-cta:hover{background:var(--moss);color:var(--ink)}
+.twin-cta:hover{background:var(--accent);color:var(--accent-ink)}
 .twin-cta .arrow{transition:transform .18s ease}
 .twin-cta:hover .arrow{transform:translateX(3px)}
 
@@ -519,6 +518,8 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   width:100%;height:100%;
   border:0;display:block;
 }
+.avatar-fallback .twin-cta{border-color:var(--moss);color:var(--moss)}
+.avatar-fallback .twin-cta:hover{background:var(--moss);color:var(--ink)}
 .avatar-fallback{
   position:absolute;inset:0;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
