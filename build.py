@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Build the site: template.html + content/<lang>.json -> public/
+"""Build the site: templates + content/<lang>.json -> public/
 
     python3 build.py
 
-Writes public/index.html (English), public/et/index.html, public/ru/index.html.
-No dependencies. Run it after editing template.html or any content file, and
-commit the result -- Cloudflare Pages only serves what is in public/.
+Writes the home page and the avatar page for every language in BUILD, plus
+public/style.css. No dependencies, standard library only.
+
+public/ is not in git: Cloudflare Pages runs this script on every push (build
+command "python3 build.py", output directory "public"). Run it locally to
+preview -- see README.md.
 
 Template syntax (a small subset of Mustache):
 
