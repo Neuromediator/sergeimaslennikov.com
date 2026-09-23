@@ -62,8 +62,6 @@ the nav and the `hreflang` tags. Nothing else needs touching.
 
 ## Rules for the text
 
-Set in `PROMPT.md`, and worth keeping to:
-
 - Every claim traceable to `KNOWLEDGE.MD`. No invented dates.
 - Plain declarative sentences. No marketing verbs, no closing zingers.
 - Job titles, school names and course names stay in their original form.
