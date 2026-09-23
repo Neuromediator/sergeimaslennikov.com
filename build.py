@@ -22,6 +22,7 @@ Template syntax (a small subset of Mustache):
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -225,9 +226,12 @@ def main():
             target.write_text(render(template, [content]), encoding="utf-8")
             print("wrote %s" % target.relative_to(ROOT))
 
-    style = (ROOT / "assets" / "style.css").read_text(encoding="utf-8")
-    (ROOT / "public" / "style.css").write_text(style, encoding="utf-8")
-    print("wrote public/style.css")
+    # everything else in assets/ is copied through untouched
+    out = ROOT / "public"
+    for name in ("style.css", "favicon.svg"):
+        shutil.copyfile(ROOT / "assets" / name, out / name)
+    shutil.copytree(ROOT / "assets" / "img", out / "img", dirs_exist_ok=True)
+    print("copied style.css, favicon.svg and img/")
 
 
 if __name__ == "__main__":
