@@ -467,20 +467,18 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
   display:grid;
   grid-template-columns:var(--rail) minmax(0,1fr);
   gap:var(--gap);
-  padding-block:52px;
+  padding-block:72px;
 }
-.twin-label{color:var(--moss);padding-top:6px}
+.twin h2{color:var(--bone)}
+/* body type, like the hero lede -- the heading carries the display font */
 .twin-line{
-  margin:0 0 12px;
-  font-family:var(--f-display);
-  font-variation-settings:"wdth" 108,"wght" 600;
-  font-size:clamp(1.3rem,2.7vw,1.95rem);
-  line-height:1.12;
-  letter-spacing:.005em;
-  text-wrap:balance;
-  max-width:26ch;
+  margin:0 0 14px;
+  font-size:clamp(1.12rem,2.1vw,1.34rem);
+  line-height:1.5;
+  color:var(--bone);
+  max-width:40ch;
 }
-.twin-note{margin:0;color:var(--bone-dim);max-width:56ch}
+.twin-note{margin:0;color:var(--bone-dim);max-width:60ch}
 .twin-cta{
   display:inline-flex;align-items:center;gap:10px;
   margin-top:24px;
@@ -550,11 +548,11 @@ html[lang="ru"] h1{font-size:clamp(2.3rem,6.6vw,4.5rem)}
 .avatar-foot a:hover{border-bottom-color:var(--moss)}
 
 @media (max-width:940px){
-  .twin .wrap{grid-template-columns:1fr;gap:16px;padding-block:44px}
-  .twin-label{padding-top:0}
+  .twin .wrap{grid-template-columns:1fr;gap:22px;padding-block:56px}
+  .twin h2{padding-top:0}
 }
 @media (max-width:620px){
-  .twin .wrap{padding-block:38px}
+  .twin .wrap{padding-block:44px;gap:18px}
   .twin-line{max-width:none}
   .twin-cta{margin-top:20px}
 }

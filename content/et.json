@@ -22,7 +22,7 @@
   "twin": {
     "label": "Digitaalne kaksik",
     "line": "Ehitasin endast digitaalse kaksiku. Küsi temalt, mida tahad.",
-    "note": "Ta vastab selle põhjal, mida olen enda kohta kirjutanud, eesti, inglise või vene keeles. Kui ta ei oska vastata, annab ta küsimuse mulle edasi — ja ma võin vestlusega ka ise liituda.",
+    "note": "Ta teab kõike minu tausta, huvide, väärtuste, hariduse ja projektide kohta. Kui ta ei oska vastata, annab ta küsimuse mulle edasi — ja ma võin vestlusega ka ise liituda. Ta vastab eesti, inglise või vene keeles.",
     "cta": "Ava kaksik"
   },
   "avatar": {
@@ -38,6 +38,10 @@
     {
       "id": "about",
       "label": "Minust"
+    },
+    {
+      "id": "twin",
+      "label": "Digitaalne kaksik"
     },
     {
       "id": "work",

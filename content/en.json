@@ -22,7 +22,7 @@
   "twin": {
     "label": "Digital twin",
     "line": "I built a digital twin of myself. Ask it anything.",
-    "note": "It answers from what I have written about myself, in English, Estonian or Russian. When it cannot answer, it passes the question to me — and I can join the chat myself.",
+    "note": "It knows everything about my background, interests, values, education and projects. When it cannot answer, it passes the question to me — and I can join the chat myself. It answers in English, Estonian or Russian.",
     "cta": "Open the twin"
   },
   "avatar": {
@@ -38,6 +38,10 @@
     {
       "id": "about",
       "label": "About"
+    },
+    {
+      "id": "twin",
+      "label": "Digital twin"
     },
     {
       "id": "work",
