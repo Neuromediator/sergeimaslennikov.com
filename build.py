@@ -243,6 +243,28 @@ def main():
     shutil.copytree(ROOT / "assets" / "img", out / "img", dirs_exist_ok=True)
     print("copied style.css, favicon.svg and img/")
 
+    write_sitemap(out)
+
+
+def write_sitemap(out):
+    """robots.txt and sitemap.xml, listing whatever BUILD actually produced."""
+    urls = []
+    for code, _, path, _, _ in LANGS:
+        if code in BUILD:
+            urls += [SITE + path, SITE + path + "avatar/"]
+    entries = "\n".join("  <url><loc>%s</loc></url>" % u for u in urls)
+    (out / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        "%s\n</urlset>\n" % entries,
+        encoding="utf-8",
+    )
+    (out / "robots.txt").write_text(
+        "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % SITE,
+        encoding="utf-8",
+    )
+    print("wrote robots.txt and sitemap.xml (%d urls)" % len(urls))
+
 
 if __name__ == "__main__":
     main()
