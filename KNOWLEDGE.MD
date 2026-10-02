@@ -27,6 +27,12 @@ Instructor: Ed Donner
 Python Data Science: Data Prep & EDA with Python (November 2025)
 Instructor: Alice Zhao (Maven Analytics)
 
+Natural Language Processing in Python (December 2025)
+Instructor: Alice Zhao (Maven Analytics)
+
+Python Data Science: Unsupervised Machine Learning (December 2025)
+Instructor: Alice Zhao (Maven Analytics)
+
 ### Wexler.io
 
 Practical Python Course: from Basics to Advanced (june 2025)
@@ -56,7 +62,7 @@ https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard
 
 August 2026
 
-A CrewAI crew that designs, builds, tests and independently inspects a Python product from plain-English requirements — with a bounded revision loop and a human gate before it ships. 
+A CrewAI crew that designs, builds, tests and independently inspects a Python product from plain-English requirements — with a bounded revision loop and a human gate before it ships. A small, deliberately limited Claude Code. Extended from a course project.
 
 https://github.com/Neuromediator/engineering-team
 https://huggingface.co/spaces/Neuromediator/engineering-team
@@ -65,7 +71,7 @@ https://huggingface.co/spaces/Neuromediator/engineering-team
 
 March 2026
 
-A workout tracking web app with AI Assistant that just works. Everything you need to log your workouts and smash your goals.
+A workout tracking web app with AI Assistant that just works. Everything you need to log your workouts and smash your goals. Built with Python, Supabase, TypeScript and LLMs.
 
 https://github.com/Neuromediator/workout-tracker
 https://myfitnesspal.online/
@@ -92,13 +98,19 @@ Data-driven decision making
 English, Russian, Estonian languages
 AI Tools 
 
+Tools i use daily: Python, Claude Code
+Tools i built something with: Codex, OpenCode, OpenAI Agents SDK, MCP, CrewAI, FastAPI, Vite/TypeScript, RAG, LightGBM
+Tools i tried: QLoRA, SQL, Qdrant
+
 ## 7.Working Experience and what i am doing now
 
-After graduation from TalTech Estonian Maritime Academy i worked as Navigation Officer for several years.
-After that i was self derected Independent quantitative analyst in sports markets for many years —  mainly tennis. The work: feature engineering from match data, probabilistic decision-making with real money on the line, continuous model evaluation under uncertainty. The skills that came out of
+After graduation from TalTech Estonian Maritime Academy i worked as Navigation Officer (Deck Officer) in 2013 - 2014, watchkeeping on container ships.
+After that, from 2015 to 2024, i was self derected Independent quantitative analyst in sports markets —  mainly tennis, also volleyball. The work: feature engineering from match data, probabilistic decision-making with real money on the line, continuous model evaluation under uncertainty. The skills that came out of
 it — Bayesian reasoning, risk management, checking whether a model is actually right or just looks right.
 At the end of 2024, i decided to take a break and reconsider me views on life, because i no longer saw meaning or value in what i was doing.
 Now i identify myself as  LLM Engineer/AI Practitioner , I build my own pet projects, applied AI systems — RAG pipelines, agent workflows, LLM-powered products.I am working hard  to build skills sufficient to enter the tech job market ( in Estonia first, EU in general ).
+
+My digital twin speaks English, Estonian and Russian. If it cannot answer, it pings my phone and i can join the chat myself.
 
 ## 7. Contact
 

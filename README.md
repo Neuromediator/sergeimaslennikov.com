@@ -26,13 +26,19 @@ Open `content/en.json`, find `"projects"`, copy one entry:
   "name": "Name of the project",
   "body": "One paragraph, plain sentences.",
   "caveat": "",
+  "tags": ["Python", "FastAPI"],
   "live": "https://...",
   "code": "https://github.com/Neuromediator/..."
 }
 ```
 
 `caveat` is the small grey line under the text (`"Not a betting tool"` on the
-tennis dashboard). Leave it `""` when there is none.
+tennis dashboard). Leave it `""` when there is none. `tags` are the small
+technology boxes. Projects are shown in the order of the file, newest first.
+
+The other lists work the same way: a chapter or a course under `"route"`, a
+tool under `"toolbox"` (add its name to one of the groups), a fact under
+`"outside"`. The menu and the "Log 02, Log 03…" numbers follow `"nav"`.
 
 Then:
 
@@ -61,11 +67,11 @@ npx wrangler deploy --dry-run
 | Path | What it is |
 |---|---|
 | `content/en.json` | every word on the English pages |
-| `content/et.json`, `ru.json` | finished Estonian and Russian text, not built yet |
+| `content/et.json`, `ru.json` | Estonian and Russian text for the old design, not built (see below) |
 | `template.html` | the home page |
 | `template-avatar.html` | the page that frames the twin |
 | `partials/head.html`, `partials/nav.html` | shared `<head>` and nav bar |
-| `assets/style.css` | the whole design |
+| `assets/style.css` | the whole design; colours and sizes are the variables at the top |
 | `assets/img/`, `assets/favicon.svg` | copied into `public/` as they are |
 | `build.py` | the build; `SITE`, `AVATAR_URL` and `BUILD` live at the top |
 | `wrangler.jsonc` | what Cloudflare deploys: the contents of `public/` |
@@ -80,7 +86,10 @@ BUILD = ["en"]                                   # -> ["en", "et", "ru"]
 ```
 
 Adding `"et"` and `"ru"` brings back `/et/` and `/ru/`, the EN·ET·RU toggle in
-the nav and the `hreflang` tags. Nothing else needs touching.
+the top bar and the phone menu, and the `hreflang` tags. Before that,
+`content/et.json` and `content/ru.json` have to be rewritten to the shape of
+`content/en.json`: they still hold the text and the sections of the old design,
+and the build fails on them as they are.
 
 ## Rules for the text
 

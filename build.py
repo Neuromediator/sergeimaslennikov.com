@@ -19,6 +19,7 @@ Template syntax (a small subset of Mustache):
     {{.}}              the current item, when the list holds plain strings
 """
 
+import datetime
 import html
 import json
 import re
@@ -32,19 +33,20 @@ SITE = "https://sergeimaslennikov.com"
 # its "Keep chat" cookie is first-party inside the iframe on /avatar/.
 AVATAR_URL = "https://avatar.sergeimaslennikov.com/"
 
-# Archivo and Newsreader carry no Cyrillic, so the Russian page uses two
-# families that do. Both are close in feel to the originals.
+# Archivo, Newsreader and Courier Prime carry no Cyrillic, so the Russian page
+# uses families that do. They are close in feel to the originals.
 FONTS_LATIN = (
     "https://fonts.googleapis.com/css2"
-    "?family=Archivo:wdth,wght@62..125,300..800"
-    "&family=IBM+Plex+Mono:wght@400;500"
-    "&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500"
+    "?family=Archivo:wdth,wght@62..125,400..900"
+    "&family=Courier+Prime:wght@400;700"
+    "&family=JetBrains+Mono:wght@400"
+    "&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600"
     "&display=swap"
 )
 FONTS_CYRILLIC = (
     "https://fonts.googleapis.com/css2"
     "?family=Golos+Text:wght@400..900"
-    "&family=IBM+Plex+Mono:wght@400;500"
+    "&family=JetBrains+Mono:wght@400;700"
     "&family=Literata:ital,opsz,wght@0,7..72,300..600;1,7..72,300..500"
     "&display=swap"
 )
@@ -56,10 +58,10 @@ LANGS = [
     ("ru", "RU", "/ru/", "ru_RU", FONTS_CYRILLIC),
 ]
 
-# Which of those get built. The Estonian and Russian text is finished and sits in
-# content/, waiting: put "et" and "ru" back in this list and the pages, the
-# toggle and the hreflang tags all come back. With one language there is no
-# toggle and no alternates.
+# Which of those get built. content/et.json and content/ru.json still have the
+# shape of the old design; once they are rewritten to match en.json, put "et"
+# and "ru" back in this list and the pages, the toggle and the hreflang tags
+# all come back. With one language there is no toggle and no alternates.
 BUILD = ["en"]
 
 PARTIAL = re.compile(r"\{\{>(\w[\w-]*)\}\}")
@@ -145,24 +147,23 @@ def fill(text, stack):
 
 def prepare(code, content):
     """Add the few computed fields the template needs."""
-    for leg in content["work"]["legs"]:
-        leg["cls"] = " pivot" if leg.get("pivot") else ""
-    for group in content["skills"]["groups"]:
-        group["tags"] = [
-            tag if isinstance(tag, dict) else {"label": tag} for tag in group["tags"]
-        ]
-        for tag in group["tags"]:
-            tag["cls"] = ' class="key"' if tag.get("key") else ""
-    for link in content["contact"]["links"]:
-        link["target"] = (
-            "" if link["href"].startswith("mailto:") else ' target="_blank" rel="noopener"'
-        )
+    route = content["route"]
+    for leg in route["legs"]:
+        # kind is "break" (dashed line) or "now" (the lit dot at the end)
+        leg["cls"] = " " + leg["kind"] if leg.get("kind") else ""
+        leg.setdefault("text", "")
+        courses = leg.setdefault("courses", [])
+        leg["has_courses"] = bool(courses)
+        leg["show"] = route["show"].replace("{n}", str(len(courses)))
     path, og_locale, fonts = next((p, o, f) for c, _, p, o, f in LANGS if c == code)
-    for item in content["nav"]:
+    # the top of the page is log entry 01, so the sections count from 02
+    for number, item in enumerate(content["nav"], start=2):
         # section links are in-page on the home page, back to it everywhere else
         item["href"] = "#" + item["id"]
-        # long labels have a short form for the two-row phone bar
+        item["num"] = "%02d" % number
+        # the top bar shows the short form, the phone menu the full label
         item.setdefault("short", item["label"])
+    content["num"] = {item["id"]: item["num"] for item in content["nav"]}
     built = [lang for lang in LANGS if lang[0] in BUILD]
     toggle = [
         {
@@ -176,15 +177,15 @@ def prepare(code, content):
     content.update(
         lang=code,
         site=SITE,
+        # the copyright year in the footer: the year of the last build
+        year=datetime.date.today().year,
         canonical=SITE + path,
         og_locale=og_locale,
         fonts=fonts,
         avatar_url=AVATAR_URL,
         avatar_url_json=json.dumps(AVATAR_URL),
-        avatar_current="",
-        avatar_href="/avatar/",
-        avatar_target="",
-        avatar_arrow="",
+        avatar_href=path + "avatar/",
+        home_href="#",
         langs={"items": toggle} if len(built) > 1 else None,
         alternates=(
             [{"hreflang": c, "href": SITE + p} for c, _, p, _, _ in built]
@@ -220,12 +221,7 @@ def main():
                 "canonical": SITE + here,
             }
             if meta_key == "avatar":
-                # already on the twin's page, so the nav item opens the app in a
-                # tab of its own instead of pointing back here
-                content["avatar_current"] = ' aria-current="page"'
-                content["avatar_href"] = AVATAR_URL
-                content["avatar_target"] = ' target="_blank" rel="noopener"'
-                content["avatar_arrow"] = '<span class="out" aria-hidden="true">&#8599;</span>'
+                content["home_href"] = path
                 for item in content["nav"]:
                     item["href"] = path + "#" + item["id"]
             template = expand_partials(

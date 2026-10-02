@@ -12,3 +12,7 @@ public/
 
 # the build prompt: kept locally, not published
 PROMPT.md
+
+# the Claude Design export the redesign was built from: a reference, not a page
+*.dc.html
+*:Zone.Identifier

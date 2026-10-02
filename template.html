@@ -1,167 +1,194 @@
 {{>head}}
 <body>
 
-<header class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-type">
-      <span class="mono eyebrow"><span class="dot"></span>{{hero.eyebrow}}</span>
-      <h1>{{hero.given}}<span class="surname">{{hero.surname}}</span></h1>
-      <div class="hero-rule"></div>
-      <p class="lede">{{hero.lede}}</p>
-      <div class="mono meta">
-        <span>{{hero.meta}}</span>
-      </div>
-    </div>
-    <figure class="hero-photo">
-      <img src="/img/portrait.jpg" alt="{{hero.photo_alt}}" width="720" height="720">
-    </figure>
-  </div>
-</header>
-
-<div class="status">
-  <div class="wrap mono">
-    <span class="k">{{status.label}}</span>
-    <span class="v">{{status.value}}</span>
-  </div>
-</div>
-
 {{>nav}}
 
 <main>
 
-  <section id="about">
-    <div class="wrap sec">
-      <h2>{{about.title}}</h2>
-      <div class="prose">
-        {{#about.paragraphs}}<p>{{.}}</p>
-        {{/about.paragraphs}}
+  <section class="hero">
+    <div class="label hero-place">
+      <span class="dot"></span>
+      <span class="place">{{hero.place}}</span>
+      <span>{{hero.coords}}</span>
+    </div>
+    <h1>{{hero.given}}<span class="surname">{{hero.surname}}</span></h1>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="lede">{{hero.lede}}</p>
+        <p class="label">{{hero.meta}}</p>
+      </div>
+      <div class="hero-photo">
+        <img src="/img/portrait.jpg" alt="{{hero.photo_alt}}" width="720" height="720">
       </div>
     </div>
   </section>
 
-  <section class="twin" id="twin">
-    <div class="wrap">
-      <h2>{{twin.label}}</h2>
-      <div>
-        <p class="twin-line">{{twin.line}}</p>
+  <section class="band" id="twin">
+    <div class="label">{{labels.log}} {{num.twin}} · {{twin.label}}</div>
+    <div class="twin-grid">
+      <div class="twin-text">
+        <h2 class="twin-line">{{twin.line}}</h2>
         <p class="twin-note">{{twin.note}}</p>
-        <a class="twin-cta" href="/avatar/">{{twin.cta}}<span class="arrow">&#8594;</span></a>
+        <a class="twin-cta" href="{{avatar_href}}">{{twin.cta}} <span class="arrow">&#8594;</span></a>
       </div>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="wrap sec">
-      <h2>{{work.title}}</h2>
-      <div class="track">
-        {{#work.legs}}
-        <article class="leg{{&cls}}">
-          <div class="mono when">{{when}}</div>
-          <div>
-            <h3>{{role}}</h3>
-            <p>{{body}}</p>
+      <a class="chat" href="{{avatar_href}}" aria-label="{{twin.cta}}">
+        <div class="chat-head">
+          <img src="/img/portrait.jpg" alt="" width="40" height="40">
+          <div class="chat-who">
+            <span class="chat-name">{{twin.name}}</span>
+            <span class="chat-speaks">{{twin.speaks}}</span>
           </div>
-        </article>
-        {{/work.legs}}
-      </div>
+          <span class="chat-status"><span class="dot"></span>{{twin.status}}</span>
+        </div>
+        <div class="chat-body">
+          <span class="chat-try">{{twin.try}}</span>
+          {{#twin.questions}}<div class="chat-q"><span>{{.}}</span><span class="out">&#8599;</span></div>
+          {{/twin.questions}}
+        </div>
+        <div class="chat-input">
+          <span>{{twin.placeholder}}</span>
+          <span class="send">&#8593;</span>
+        </div>
+      </a>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="wrap sec">
-      <h2>{{projects.title}}</h2>
-      <div class="projects">
-        {{#projects.items}}
-        <article class="proj">
-          <div class="mono when">{{when}}</div>
-          <div>
-            <h3>{{name}}</h3>
-            <p>{{body}}</p>
-            {{#caveat}}<span class="caveat">{{caveat}}</span>{{/caveat}}
-            <div class="links">
-              <a href="{{live}}" target="_blank" rel="noopener">{{labels.live}}</a>
-              <a href="{{code}}" target="_blank" rel="noopener">{{labels.code}}</a>
+  <section id="about">
+    <h2 class="label">{{labels.log}} {{num.about}} · {{about.title}}</h2>
+    <div class="about">
+      <p class="lead">{{about.lead}}</p>
+      {{#about.paragraphs}}<p>{{.}}</p>
+      {{/about.paragraphs}}
+    </div>
+  </section>
+
+  <section class="band" id="route">
+    <div class="label">{{labels.log}} {{num.route}}</div>
+    <h2 class="title">{{route.title}}</h2>
+    <div class="route">
+      {{#route.legs}}
+      <article class="leg{{&cls}}">
+        <div class="label when">{{when}}</div>
+        <div class="rail"><span class="line"></span><span class="dot"></span></div>
+        <div class="leg-body">
+          <h3>{{title}}</h3>
+          {{#text}}<p>{{text}}</p>{{/text}}
+          {{#has_courses}}
+          <details class="courses">
+            <summary><span class="when-closed">{{show}} &#8595;</span><span class="when-open">{{route.hide}} &#8593;</span></summary>
+            <div class="course-list">
+              {{#courses}}
+              <div class="course">
+                <span class="label">{{when}}</span>
+                <div><span class="what">{{what}}</span><span class="who">{{who}}</span></div>
+              </div>
+              {{/courses}}
             </div>
-          </div>
-        </article>
-        {{/projects.items}}
-      </div>
+          </details>
+          {{/has_courses}}
+        </div>
+      </article>
+      {{/route.legs}}
     </div>
   </section>
 
-  <section id="skills">
-    <div class="wrap sec">
-      <h2>{{skills.title}}</h2>
-      <div class="caps">
-        {{#skills.groups}}
-        <div class="cap-group">
-          <div class="mono">{{group}}</div>
+  <section class="flush" id="projects">
+    <div class="label">{{labels.log}} {{num.projects}}</div>
+    <h2 class="title">{{projects.title}}</h2>
+    <div class="projects">
+      {{#projects.items}}
+      <article class="proj">
+        <div class="proj-inner">
+          <span class="label">{{when}}</span>
+          <h3>{{name}}</h3>
+          <p>{{body}}</p>
+          {{#caveat}}<span class="label caveat">{{caveat}}</span>{{/caveat}}
           <div class="tags">
-            {{#tags}}<span{{&cls}}>{{label}}</span>
+            {{#tags}}<span>{{.}}</span>
             {{/tags}}
           </div>
+          <div class="links">
+            <a class="live" href="{{live}}" target="_blank" rel="noopener">{{labels.live}} <span>&#8599;</span></a>
+            <a href="{{code}}" target="_blank" rel="noopener">{{labels.code}} <span>&#8599;</span></a>
+          </div>
         </div>
-        {{/skills.groups}}
-      </div>
+      </article>
+      {{/projects.items}}
     </div>
   </section>
 
-  <section id="education">
-    <div class="wrap sec">
-      <h2>{{education.title}}</h2>
-      <div class="study">
-        {{#education.items}}
-        <div class="item">
-          <div class="mono when">{{when}}</div>
-          <div>
-            <span class="what">{{what}}</span>
-            <span class="who">{{who}}</span>
-          </div>
+  <section class="flush" id="toolbox">
+    <div class="label">{{labels.log}} {{num.toolbox}}</div>
+    <h2 class="title">{{toolbox.title}}</h2>
+    <div class="term">
+      <div><span class="dim">$ </span>{{toolbox.command}}</div>
+      <div class="term-groups">
+        {{#toolbox.groups}}
+        <div>
+          {{#tools}}<div class="tool"><span>{{.}}</span><span class="dim"># {{label}}</span></div>
+          {{/tools}}
         </div>
-        {{/education.items}}
+        {{/toolbox.groups}}
       </div>
+      <div class="prompt"><span class="dim">$ </span><span class="cursor"></span></div>
     </div>
   </section>
 
   <section id="outside">
-    <div class="wrap sec">
-      <h2>{{outside.title}}</h2>
-      <div>
-        <div class="prose" style="margin-bottom:28px">
-          {{#outside.paragraphs}}<p>{{.}}</p>
-          {{/outside.paragraphs}}
-        </div>
-        <dl class="facts">
-          {{#outside.facts}}<div class="fact"><dt class="mono">{{term}}</dt><dd>{{def}}</dd></div>
-          {{/outside.facts}}
-        </dl>
-      </div>
-    </div>
+    <div class="label">{{labels.log}} {{num.outside}}</div>
+    <h2 class="title">{{outside.title}}</h2>
+    <dl class="facts">
+      {{#outside.facts}}<div class="fact"><dt class="label">{{term}}</dt><dd>{{def}}</dd></div>
+      {{/outside.facts}}
+    </dl>
   </section>
 
 </main>
 
-<footer class="contact" id="contact">
-  <div class="wrap sec">
-    <h2>{{contact.title}}</h2>
-    <nav class="reach">
-      {{#contact.links}}<a href="{{href}}"{{&target}}>
-        <span class="label">{{label}}</span>
-        <span class="val">{{val}}</span>
+<footer class="band hi" id="hi">
+  <div class="label">{{labels.log}} {{num.hi}}</div>
+  <h2 class="title">{{contact.title}}</h2>
+  <div class="reach">
+    <a class="mail" href="mailto:{{contact.email}}">
+      <span><svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1" y="1" width="18" height="14" rx="2"/><path d="M1.5 2 10 9l8.5-7"/></svg>{{contact.cta}}</span>
+      <span class="arrow">&#8594;</span>
+    </a>
+    <div class="mail-row">
+      <span class="address">{{contact.email}}</span>
+      <button type="button" class="copy" data-copy="{{contact.email}}" data-done="{{labels.copied}}"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="3.5" y="3.5" width="8" height="8" rx="1.5"/><path d="M8.5 1H2a1 1 0 0 0-1 1v6.5"/></svg><span>{{labels.copy}}</span></button>
+    </div>
+    <nav class="profiles">
+      {{#contact.links}}<a href="{{href}}" target="_blank" rel="noopener">
+        <span class="mark">{{mark}}</span>
+        <span class="name">{{label}}</span>
+        <span class="handle">{{handle}}</span><span class="out">&#8599;</span>
       </a>
       {{/contact.links}}
     </nav>
   </div>
-  <div class="wrap mono colophon">
-    <span>{{colophon}}</span>
+  <div class="label colophon">
+    <a href="#">{{labels.top}} &#8593;</a>
+    <span>&copy; {{year}} {{colophon}}</span>
   </div>
 </footer>
 
 <script>
 (function () {
+  // copy the email address
+  var copy = document.querySelector('.copy');
+  if (copy) {
+    var text = copy.querySelector('span'), idle = text.textContent, timer;
+    copy.addEventListener('click', function () {
+      try { navigator.clipboard.writeText(copy.getAttribute('data-copy')); } catch (e) {}
+      text.textContent = copy.getAttribute('data-done');
+      clearTimeout(timer);
+      timer = setTimeout(function () { text.textContent = idle; }, 1800);
+    });
+  }
+
+  // mark the section you are reading in the top bar
   var links = [].slice.call(document.querySelectorAll('.nav-links a'));
   if (!links.length) return;
-  var bar = document.querySelector('.nav-links');
   var langLinks = [].slice.call(document.querySelectorAll('.lang a'));
   var langBase = langLinks.map(function (a) { return a.getAttribute('href'); });
   var items = links.map(function (a) {
@@ -180,15 +207,7 @@
       current = items[items.length - 1];
     }
     links.forEach(function (a) { a.removeAttribute('aria-current'); });
-    if (current) {
-      current.link.setAttribute('aria-current', 'true');
-      // keep the active item in view when the bar is scrollable
-      if (bar && bar.scrollWidth > bar.clientWidth) {
-        var l = current.link, left = l.offsetLeft, right = left + l.offsetWidth;
-        if (left < bar.scrollLeft + 20) bar.scrollLeft = left - 20;
-        else if (right > bar.scrollLeft + bar.clientWidth - 20) bar.scrollLeft = right - bar.clientWidth + 20;
-      }
-    }
+    if (current) current.link.setAttribute('aria-current', 'true');
     // switching language keeps you in the same section
     var hash = current ? current.link.getAttribute('href') : '';
     langLinks.forEach(function (a, n) { a.setAttribute('href', langBase[n] + hash); });

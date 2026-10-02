@@ -1,40 +1,75 @@
-<nav class="nav" aria-label="{{labels.sections}}">
-  <div class="wrap mono">
-    <div class="nav-actions">
-    <div class="nav-extra">
-      <a href="{{avatar_href}}"{{&avatar_current}}{{&avatar_target}}><span class="dot"></span>{{avatar.nav_label}}<span class="live"> · {{avatar.nav_live}}</span>{{&avatar_arrow}}</a>
-    </div>
-    <div class="theme">
-      <button type="button" class="theme-btn" aria-label="{{labels.theme}}" title="{{labels.theme}}">
-        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.4M12 19v2.4M4.6 12H2.2M21.8 12h-2.4M6.4 6.4 4.7 4.7M19.3 19.3l-1.7-1.7M17.6 6.4l1.7-1.7M4.7 19.3l1.7-1.7"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 14.2A8.6 8.6 0 0 1 9.8 3.6a8.6 8.6 0 1 0 10.6 10.6z"/></svg>
-      </button>
-    </div>
+<header class="top">
+  <a class="brand" href="{{home_href}}">{{brand}}</a>
+  <nav class="nav-links" aria-label="{{labels.sections}}">
+    {{#nav}}<a href="{{href}}">{{short}}</a>
+    {{/nav}}
+  </nav>
+  <div class="top-actions">
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu"><span class="when-closed">{{labels.menu}}</span><span class="when-open">{{labels.close}}</span></button>
     {{#langs}}<div class="lang" role="group" aria-label="{{labels.language}}">
       {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
       {{/items}}
     </div>
     {{/langs}}
+    <button type="button" class="theme-btn" aria-label="{{labels.theme}}" title="{{labels.theme}}"><span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <nav class="menu-links" aria-label="{{labels.sections}}">
+    {{#nav}}<a href="{{href}}"><span class="num">{{num}}</span><span class="name">{{label}}</span></a>
+    {{/nav}}
+  </nav>
+  <div class="menu-settings">
+    {{#langs}}<div class="menu-row">
+      <span>{{labels.language}}</span>
+      <span class="lang">
+        {{#items}}<a href="{{href}}" hreflang="{{code}}" lang="{{code}}"{{&current}}>{{short}}</a>
+        {{/items}}
+      </span>
     </div>
-    <div class="nav-links">
-      {{#nav}}<a href="{{href}}"><span class="full">{{label}}</span><span class="short">{{short}}</span></a>
-      {{/nav}}
+    {{/langs}}
+    <div class="menu-row menu-theme">
+      <span>{{labels.theme}}</span>
+      <span class="pick">
+        <button type="button" data-theme-set="dark">{{labels.dark}}</button>
+        <button type="button" data-theme-set="light">{{labels.light}}</button>
+      </span>
     </div>
   </div>
-</nav>
+</div>
 <script>
 (function () {
   var root = document.documentElement;
-  var btn = document.querySelector('.theme-btn');
-  if (!btn) return;
   // dark is the default; only an explicit choice makes it light
   function effective() {
     return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   }
-  btn.addEventListener('click', function () {
-    var next = effective() === 'dark' ? 'light' : 'dark';
+  function setTheme(next) {
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('site-theme', next); } catch (e) {}
+  }
+  var toggle = document.querySelector('.theme-btn');
+  if (toggle) toggle.addEventListener('click', function () {
+    setTheme(effective() === 'dark' ? 'light' : 'dark');
+  });
+  [].forEach.call(document.querySelectorAll('[data-theme-set]'), function (b) {
+    b.addEventListener('click', function () { setTheme(b.getAttribute('data-theme-set')); });
+  });
+
+  // the phone menu
+  var btn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('menu');
+  if (!btn || !menu) return;
+  function setOpen(open) {
+    root.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function () { setOpen(!root.classList.contains('menu-open')); });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setOpen(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
   });
 })();
 </script>
