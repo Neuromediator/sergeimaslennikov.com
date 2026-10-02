@@ -220,6 +220,9 @@ def main():
             }
             if meta_key == "avatar":
                 content["home_href"] = path
+                # the twin's own screen is in one language, so a language
+                # toggle above it would promise a translation that is not there
+                content["langs"] = None
                 for item in content["nav"]:
                     item["href"] = path + "#" + item["id"]
             template = expand_partials(
