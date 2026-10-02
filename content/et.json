@@ -1,34 +1,48 @@
 {
   "title": "Sergei Maslennikov",
-  "description": "Sergei Maslennikov — LLM-insener ja AI praktik Tallinnas. RAG-konveierid, agentide töövood, LLM-põhised tooted.",
+  "description": "Tere, olen Sergei Maslennikov Tallinnast. Hariduselt laevajuht, harjumuselt spordiandmete nohik, omal valikul AI-lahenduste arendaja.",
+  "brand": "S·M",
   "labels": {
     "sections": "Jaotised",
     "language": "Keel",
-    "live": "Vaata",
+    "theme": "Teema",
+    "dark": "Tume",
+    "light": "Hele",
+    "menu": "Menüü",
+    "close": "Sulge",
+    "log": "Logi",
+    "live": "Live",
     "code": "Kood",
-    "theme": "Teema"
+    "copy": "Kopeeri",
+    "copied": "Kopeeritud",
+    "top": "Tagasi üles"
   },
   "hero": {
-    "eyebrow": "Tallinn, Eesti",
+    "place": "Tallinn, Eesti",
+    "coords": "59°26′ N · 24°45′ E",
     "given": "Sergei",
     "surname": "Maslennikov",
-    "lede": "LLM-insener ja AI praktik. Ehitan rakenduslikke AI-süsteeme — RAG-konveierid, agentide töövood, LLM-põhised tooted.",
-    "meta": "Pärit Pärnust",
-    "photo_alt": "Sergei Maslennikov."
-  },
-  "status": {
-    "label": "Hetkeseis",
-    "value": "Kogun oskusi, et siseneda tehnoloogiasektori tööturule — esmalt Eestis, laiemalt Euroopa Liidus"
+    "lede": "Tere, olen Sergei. Hariduselt laevajuht, harjumuselt spordiandmete nohik, omal valikul AI-lahenduste arendaja.",
+    "meta": "Kasvasin üles mere ääres Pärnus",
+    "photo_alt": "Sergei Maslennikov"
   },
   "twin": {
     "label": "Digitaalne kaksik",
-    "line": "Ehitasin endast digitaalse kaksiku. Küsi temalt, mida tahad.",
-    "note": "Ta teab kõike minu tausta, huvide, väärtuste, hariduse ja projektide kohta. Kui ta ei oska vastata, annab ta küsimuse mulle edasi — ja ma võin vestlusega ka ise liituda. Ta vastab eesti, inglise või vene keeles.",
-    "cta": "Ava kaksik"
+    "line": "Ei viitsi seda kõike lugeda? Küsi mu digitaalselt kaksikult mida tahes, ta on minust jutukam.",
+    "note": "Ta tunneb minu tausta, projekte ja seisukohti ning räägib eesti, inglise ja vene keelt. Kui ta jääb hätta, saadab ta teate mu telefoni ja ma saan ise vestlusega liituda.",
+    "cta": "Küsi kaksikult",
+    "name": "Minu kaksik",
+    "speaks": "EN · ET · RU",
+    "status": "Võrgus",
+    "try": "Proovi küsida",
+    "questions": [
+      "Milline on Sergei haridustee?",
+      "Milliseid projekte oled ehitanud?",
+      "Millised on Sergei huvid?"
+    ],
+    "placeholder": "Kirjuta oma küsimus…"
   },
   "avatar": {
-    "nav_label": "Avatar",
-    "nav_live": "live",
     "title": "Digitaalne kaksik — Sergei Maslennikov",
     "description": "Küsi Sergei Maslennikovi digitaalselt kaksikult tema töö, projektide ja tausta kohta. Ta vastab eesti, inglise või vene keeles.",
     "frame_title": "Sergei Maslennikovi digitaalne kaksik",
@@ -37,30 +51,27 @@
   },
   "nav": [
     {
-      "id": "about",
-      "label": "Minust"
-    },
-    {
       "id": "twin",
       "label": "Digitaalne kaksik",
       "short": "Kaksik"
     },
     {
-      "id": "work",
-      "label": "Töökäik"
+      "id": "about",
+      "label": "Minust"
+    },
+    {
+      "id": "route",
+      "label": "Senine teekond",
+      "short": "Teekond"
     },
     {
       "id": "projects",
       "label": "Projektid"
     },
     {
-      "id": "skills",
-      "label": "Oskused"
-    },
-    {
-      "id": "education",
-      "label": "Haridus",
-      "short": "Haridus"
+      "id": "toolbox",
+      "label": "Tööriistakast",
+      "short": "Tööriistad"
     },
     {
       "id": "outside",
@@ -68,45 +79,87 @@
       "short": "Vaba aeg"
     },
     {
-      "id": "contact",
-      "label": "Kontakt"
+      "id": "hi",
+      "label": "Ütle tere"
     }
   ],
   "about": {
     "title": "Minust",
+    "lead": "Varem juhtisin laevu. Siis lugesin kümme aastat tennisematše nagu arvutustabeleid. Nüüd püüan panna LLM-e kasulikke asju tegema ja loen stoikuid, kui kood koostööd ei tee.",
     "paragraphs": [
-      "Olen Sergei. Mulle meeldib AI-abiga programmeerimine ja LLM-idega katsetamine.",
-      "Pean end LLM-inseneriks ja AI praktikuks. Ehitan oma harrastusprojekte ja rakenduslikke AI-süsteeme — RAG-konveierid, agentide töövood, LLM-põhised tooted. Kogun oskusi, millest piisab tehnoloogiasektori tööturule sisenemiseks — esmalt Eestis ja laiemalt Euroopa Liidus."
+      "Usaldan andmeid rohkem kui kõhutunnet, peamiselt seetõttu, et spordiandmed näitasid mulle, kui tihti kõhutunne eksib. Samuti arvan, et aeg ja tähelepanu on ainsad asjad, mida osta ei saa, seepärast annan igava töö meelsasti masinatele. Nii jõudsingi LLM-idega arendamiseni."
     ]
   },
-  "work": {
-    "title": "Töökäik",
+  "route": {
+    "title": "Senine teekond",
+    "show": "Näita {n} kursust",
+    "hide": "Peida kursused",
     "legs": [
       {
         "when": "2006 — 2011",
-        "role": "Bachelor of Marine Navigation",
-        "body": "TalTech Estonian Maritime Academy."
+        "title": "Bachelor of Marine Navigation · TalTech Estonian Maritime Academy."
       },
       {
-        "when": "",
-        "role": "Navigation Officer",
-        "body": "Pärast Mereakadeemia lõpetamist töötasin mitu aastat navigatsiooniohvitserina."
+        "when": "2013 — 2014",
+        "title": "Deck Officer",
+        "text": "Vahiteenistus konteinerlaevadel."
       },
       {
-        "when": "",
-        "role": "Independent Quantitative Analyst · Sports Markets",
-        "body": "Iseseisvalt, palju aastaid, peamiselt tennis. Töö sisu: tunnuste konstrueerimine matšiandmetest, tõenäosuslikud otsused päris raha peal, mudelite pidev hindamine ebakindluse tingimustes. Sellest kasvasid välja oskused — Bayesi arutlus, riskijuhtimine ning kontrollimine, kas mudel on tegelikult õige või ainult näib õigena."
+        "when": "2015 — 2024",
+        "title": "Independent Quantitative Analyst — Sports Markets",
+        "text": "Kümme aastat tennise- ja võrkpallimatšide lugemist nagu arvutustabeleid."
       },
       {
         "when": "2024 lõpp",
-        "role": "Paus",
-        "body": "Otsustasin teha pausi ja oma eluvaateid üle vaadata, sest ma ei näinud selles, mida tegin, enam mõtet ega väärtust.",
-        "pivot": true
+        "title": "Paus",
+        "text": "Otsustasin teha pausi ja oma eluvaateid üle vaadata, sest ma ei näinud selles, mida tegin, enam mõtet ega väärtust.",
+        "kind": "break"
+      },
+      {
+        "when": "2025 — 2026",
+        "title": "Tagasi õppima",
+        "courses": [
+          {
+            "when": "Mai — okt 2025",
+            "what": "Google Data Analytics Professional Certificate",
+            "who": "Coursera · sertifikaat"
+          },
+          {
+            "when": "Juuni 2025",
+            "what": "Practical Python Course: from Basics to Advanced",
+            "who": "Wexler.io · Egor Wexler"
+          },
+          {
+            "when": "Okt 2025 — veebr 2026",
+            "what": "AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents",
+            "who": "Udemy · Ed Donner"
+          },
+          {
+            "when": "Nov 2025",
+            "what": "Python Data Science: Data Prep & EDA with Python",
+            "who": "Udemy · Alice Zhao, Maven Analytics"
+          },
+          {
+            "when": "Dets 2025",
+            "what": "Natural Language Processing in Python",
+            "who": "Udemy · Alice Zhao, Maven Analytics"
+          },
+          {
+            "when": "Dets 2025",
+            "what": "Python Data Science: Unsupervised Machine Learning",
+            "who": "Alice Zhao, Maven Analytics"
+          },
+          {
+            "when": "Märts 2026",
+            "what": "AI Coder: Vibe Coder to Agentic Engineer",
+            "who": "Udemy · Ed Donner"
+          }
+        ]
       },
       {
         "when": "Praegu",
-        "role": "LLM Engineer · AI Practitioner",
-        "body": "Ehitan harrastusprojekte ja rakenduslikke AI-süsteeme — RAG-konveierid, agentide töövood, LLM-põhised tooted."
+        "title": "Arendan AI-ga",
+        "kind": "now"
       }
     ]
   },
@@ -116,144 +169,94 @@
       {
         "when": "Aug 2026",
         "name": "Autonomous Trading Floor",
-        "body": "Aktsiakaubanduse simulatsioon, kus neli autonoomset LLM-agenti haldavad virtuaalseid portfelle: uurivad turgu, teevad tehinguid ja kirjutavad oma strateegiad ümber selle põhjal, kuidas nende varasemad tehingud õnnestusid. Ehitatud Model Context Protocolile ja OpenAI Agents SDK-le, FastAPI taustsüsteemi ja Vite/TypeScripti armatuurlauaga.",
+        "body": "Aktsiakaubanduse simulatsioon, kus neli autonoomset LLM-agenti haldavad virtuaalseid portfelle: uurivad turgu, teevad tehinguid ja kirjutavad oma strateegiad ümber selle põhjal, kuidas nende varasemad tehingud õnnestusid. Ehitatud Model Context Protocolile ja OpenAI Agents SDK-le, FastAPI backendi ja Vite/TypeScripti dashboardiga.",
         "caveat": "",
+        "tags": [
+          "MCP",
+          "OpenAI Agents SDK",
+          "FastAPI",
+          "Vite / TypeScript"
+        ],
         "live": "https://trading-floor.duckdns.org/",
         "code": "https://github.com/Neuromediator/autonomous-trading-floor"
       },
       {
-        "when": "Juuni — juuli 2026",
-        "name": "Tennis Match Research Dashboard",
-        "body": "LLM-agentide inseneritöö päris valdkonnas. Armatuurlaud näitab iga eelseisva ATP / WTA tuuritaseme üksikmängu kohta nelja sõltumatut signaali kõrvuti — turu konsensuskoefitsient, treenitud LightGBM-i tõenäosus, väljakukatte-Elo võrdlusalus, LLM-i leitud uudiseplokk — ning lisaks deterministlik paneel „miks mudel erineb“, kui mudeli ja turu vahe ületab 10 protsendipunkti. Projekti eesmärk on näidata otsast lõpuni ML- ja LLM-inseneritööd: andmete sisselugemine, tunnuste konstrueerimine, mudeli treenimine, hindamine, LLM-i tööriistakutsete integreerimine, juurutatav liides.",
-        "caveat": "Ei ole panustamistööriist",
-        "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
-        "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
-      },
-      {
         "when": "Aug 2026",
         "name": "Engineering Team",
-        "body": "CrewAI meeskond, mis projekteerib, ehitab, testib ja sõltumatult üle vaatab Pythoni toote tavakeelsete nõuete põhjal — piiratud paranduste tsükliga ja inimese heakskiiduga enne väljalaset.",
+        "body": "Väike, teadlikult piiratud Claude Code: CrewAI meeskond, mis projekteerib, ehitab, testib ja vaatab üle Pythoni rakenduse tavakeelsete nõuete põhjal, inimese heakskiiduga enne väljalaset. Edasi arendatud kursuseprojektist.",
         "caveat": "",
+        "tags": [
+          "CrewAI",
+          "Python"
+        ],
         "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
         "code": "https://github.com/Neuromediator/engineering-team"
       },
       {
+        "when": "Juuni — juuli 2026",
+        "name": "Tennis Match Research Dashboard",
+        "body": "LLM-agentide insenerindus päris valdkonnas. Dashboard näitab iga eelseisva ATP / WTA tuuritaseme üksikmängu kohta nelja sõltumatut signaali kõrvuti — turu konsensuskoefitsient, treenitud LightGBM-i tõenäosus, väljakukatte-Elo võrdlusalus, LLM-i leitud uudiseplokk — ning lisaks deterministlik paneel „miks mudel erineb“, kui mudeli ja turu vahe ületab 10 protsendipunkti. Projekti eesmärk on näidata otsast lõpuni ML- ja LLM-insenerindust: andmete sisselugemine, feature engineering, mudeli treenimine, hindamine, LLM-i tool-calling’u integreerimine, juurutatav liides.",
+        "caveat": "Ei ole panustamistööriist",
+        "tags": [
+          "LightGBM",
+          "Python"
+        ],
+        "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
+        "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
+      },
+      {
         "when": "Märts 2026",
         "name": "Workout Tracker",
-        "body": "Treeningute jälgimise veebirakendus koos AI-assistendiga, mis lihtsalt töötab. Kõik, mida on vaja treeningute kirja panemiseks ja eesmärkide saavutamiseks.",
+        "body": "Treeningute jälgimise veebirakendus koos AI-assistendiga, mis lihtsalt töötab.",
         "caveat": "",
+        "tags": [
+          "Python",
+          "Supabase",
+          "TypeScript",
+          "LLMs"
+        ],
         "live": "https://myfitnesspal.online/",
         "code": "https://github.com/Neuromediator/workout-tracker"
       }
     ]
   },
-  "skills": {
-    "title": "Peamised oskused",
+  "toolbox": {
+    "title": "Tööriistakast",
+    "command": "cat toolbox.txt",
     "groups": [
       {
-        "group": "AI",
-        "tags": [
-          {
-            "label": "Tehisintellekt",
-            "key": true
-          },
-          {
-            "label": "LLM-inseneritöö",
-            "key": true
-          },
-          {
-            "label": "LLM-agendid",
-            "key": true
-          },
-          {
-            "label": "Python",
-            "key": true
-          },
-          "RAG",
-          "QLoRA",
-          "Model Context Protocol",
-          "OpenAI Agents SDK",
-          "CrewAI",
-          "FastAPI",
-          "LightGBM",
-          "Vite / TypeScript",
-          "AI-tööriistad"
+        "label": "iga päev",
+        "tools": [
+          "python",
+          "claude-code"
         ]
       },
       {
-        "group": "Agentne inseneritöö",
-        "tags": [
-          "Claude Code",
-          "Codex",
-          "OpenCode"
+        "label": "aeg-ajalt",
+        "tools": [
+          "codex",
+          "opencode",
+          "openai-agents-sdk",
+          "mcp",
+          "crewai",
+          "fastapi",
+          "vite-typescript",
+          "rag",
+          "lightgbm"
         ]
       },
       {
-        "group": "Analüüs",
-        "tags": [
-          {
-            "label": "Andmeanalüüs",
-            "key": true
-          },
-          {
-            "label": "Andmeanalüütika",
-            "key": true
-          },
-          "Analüütiline mõtlemine",
-          "Kriitiline mõtlemine",
-          "Andmepõhine otsustamine"
+        "label": "proovinud",
+        "tools": [
+          "qlora",
+          "sql",
+          "qdrant"
         ]
-      },
-      {
-        "group": "Keeled",
-        "tags": [
-          "Vene — emakeel",
-          "Inglise",
-          "Eesti"
-        ]
-      }
-    ]
-  },
-  "education": {
-    "title": "Haridus",
-    "items": [
-      {
-        "when": "Märts 2026",
-        "what": "AI Coder: Vibe Coder to Agentic Engineer",
-        "who": "Udemy · Ed Donner"
-      },
-      {
-        "when": "Okt 2025 — veebr 2026",
-        "what": "AI Engineer Core Track: LLM Engineering, RAG, QLoRA, Agents",
-        "who": "Udemy · Ed Donner · sertifikaat"
-      },
-      {
-        "when": "Nov 2025",
-        "what": "Python Data Science: Data Prep & EDA with Python",
-        "who": "Udemy · Alice Zhao, Maven Analytics"
-      },
-      {
-        "when": "Mai — okt 2025",
-        "what": "Google Data Analytics Professional Certificate",
-        "who": "Coursera · sertifikaat"
-      },
-      {
-        "when": "Juuni 2025",
-        "what": "Practical Python Course: from Basics to Advanced",
-        "who": "Wexler.io · Egor Wexler"
-      },
-      {
-        "when": "2006 — 2011",
-        "what": "Bachelor of Marine Navigation",
-        "who": "TalTech Estonian Maritime Academy"
       }
     ]
   },
   "outside": {
     "title": "Väljaspool tööd",
-    "paragraphs": [
-      "20 aastat peaaegu igapäevast treeningut — peamiselt jõusaalis, aga ka funktsionaalset treeningut nagu HIIT ja CrossFit, või lihtsalt metsas jalutamist. Ei suitseta, ei tarvita alkoholi, tervislik toitumine. Ei söö midagi magusat peale puuviljade."
-    ],
     "facts": [
       {
         "term": "Treening",
@@ -261,19 +264,15 @@
       },
       {
         "term": "Toitumine",
-        "def": "Ei suitseta, ei tarvita alkoholi, midagi magusat peale puuviljade."
+        "def": "Ei suitseta, nulltolerants alkoholi suhtes, magusast söön ainult puuvilju."
       },
       {
         "term": "Vaba aeg",
-        "def": "Üksi looduses jalutamine. Meditatsioon."
-      },
-      {
-        "term": "Tähelepanu",
-        "def": "Range infohügieen — pean aega ja tähelepanu oma kõige väärtuslikumateks ressurssideks."
+        "def": "Pikad jalutuskäigud metsas, ilma telefonita."
       },
       {
         "term": "Huvid",
-        "def": "Fitness ja sport, andmeanalüütika, neurobioloogia, stoitsism."
+        "def": "Fitness ja sport, neurobioloogia, stoitsism."
       },
       {
         "term": "Kool",
@@ -294,29 +293,29 @@
     ]
   },
   "contact": {
-    "title": "Kontakt",
+    "title": "Ütle tere",
+    "cta": "Kirjuta mulle",
+    "email": "sergeimaslennikov89@gmail.com",
     "links": [
       {
-        "label": "E-post",
-        "val": "sergeimaslennikov89@gmail.com",
-        "href": "mailto:sergeimaslennikov89@gmail.com"
-      },
-      {
         "label": "LinkedIn",
-        "val": "/in/sergei-maslennikov-ai",
+        "mark": "in",
+        "handle": "sergei-maslennikov-ai",
         "href": "https://www.linkedin.com/in/sergei-maslennikov-ai"
       },
       {
         "label": "GitHub",
-        "val": "github.com/Neuromediator",
+        "mark": "gh",
+        "handle": "Neuromediator",
         "href": "https://github.com/Neuromediator"
       },
       {
         "label": "Hugging Face",
-        "val": "huggingface.co/Neuromediator",
+        "mark": "hf",
+        "handle": "Neuromediator",
         "href": "https://huggingface.co/Neuromediator"
       }
     ]
   },
-  "colophon": "Sergei Maslennikov — Tallinn, Eesti"
+  "colophon": "Sergei Maslennikov"
 }

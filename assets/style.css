@@ -24,7 +24,7 @@
   --name: clamp(26px, 9vw, 60px);
   --intro: 25px;
   --portrait: 128px;
-  --h2: 30px;
+  --h2: clamp(24px, 7.7vw, 30px);
   --twin-h: 30px;
   --lead: 25px;
   --body: 17px;
@@ -446,6 +446,10 @@ h1 .surname{display:block;color:var(--ink2)}
 .tool{display:grid;grid-template-columns:18ch minmax(0,1fr);column-gap:1.5ch}
 .prompt{display:flex;align-items:center;margin-top:4px}
 .cursor{display:inline-block;width:.6em;height:1.1em;margin-left:.3em;background:var(--accent)}
+@media (max-width:999px){
+  /* the group labels are longer in Estonian and Russian */
+  html[lang="et"],html[lang="ru"]{--term:clamp(10.5px, 3.2vw, 13px)}
+}
 @media (min-width:1000px){
   .term{padding:24px 28px}
   .tool{grid-template-columns:20ch minmax(0,1fr);column-gap:3ch}
@@ -489,11 +493,17 @@ h1 .surname{display:block;color:var(--ink2)}
 /* the address stays on one line: on a narrow phone the type shrinks to fit
    beside the copy button (17.6 = the address's width in em, 160px = the side
    padding, the gap and the button) */
+.reach{--copy-w:92px}
 .address{
   font-family:var(--f-code);color:var(--ink2);
   font-size:clamp(9.5px, calc((100vw - 160px) / 17.6), 13px);
   white-space:nowrap;
 }
+/* the Estonian and Russian button is too wide for that: on a narrow phone it
+   drops under the address instead */
+html[lang="et"] .reach,html[lang="ru"] .reach{--copy-w:138px}
+html[lang="et"] .address,html[lang="ru"] .address{font-size:13px}
+html[lang="et"] .mail-row,html[lang="ru"] .mail-row{flex-wrap:wrap;row-gap:10px}
 .copy{
   display:flex;align-items:center;gap:8px;flex:none;
   padding:6px 10px;
@@ -501,7 +511,8 @@ h1 .surname{display:block;color:var(--ink2)}
   border:1px solid var(--line-strong);border-radius:6px;
   font-family:var(--f-label);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink);cursor:pointer;
-  min-width:92px;   /* wide enough for "Copied", so the row does not jump */
+  min-width:var(--copy-w);   /* wide enough for "Copied", so the row does not jump */
+  justify-content:center;
 }
 .profiles{margin-top:32px;border-top:1px solid var(--line)}
 .profiles a{

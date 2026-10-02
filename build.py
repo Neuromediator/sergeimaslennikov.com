@@ -58,11 +58,9 @@ LANGS = [
     ("ru", "RU", "/ru/", "ru_RU", FONTS_CYRILLIC),
 ]
 
-# Which of those get built. content/et.json and content/ru.json still have the
-# shape of the old design; once they are rewritten to match en.json, put "et"
-# and "ru" back in this list and the pages, the toggle and the hreflang tags
-# all come back. With one language there is no toggle and no alternates.
-BUILD = ["en"]
+# Which of those get built. Each needs its content/<code>.json, in the same
+# shape as en.json. With one language there is no toggle and no alternates.
+BUILD = ["en", "et", "ru"]
 
 PARTIAL = re.compile(r"\{\{>(\w[\w-]*)\}\}")
 SECTION = re.compile(r"\{\{#([\w.]+)\}\}")

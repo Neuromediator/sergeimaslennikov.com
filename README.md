@@ -67,7 +67,7 @@ npx wrangler deploy --dry-run
 | Path | What it is |
 |---|---|
 | `content/en.json` | every word on the English pages |
-| `content/et.json`, `ru.json` | Estonian and Russian text for the old design, not built (see below) |
+| `content/et.json`, `ru.json` | the same for `/et/` and `/ru/`; keep all three in step |
 | `template.html` | the home page |
 | `template-avatar.html` | the page that frames the twin |
 | `partials/head.html`, `partials/nav.html` | shared `<head>` and nav bar |
@@ -82,14 +82,13 @@ npx wrangler deploy --dry-run
 
 ```python
 AVATAR_URL = "https://avatar-sergei.fly.dev/"   # -> https://avatar.sergeimaslennikov.com/
-BUILD = ["en"]                                   # -> ["en", "et", "ru"]
+BUILD = ["en", "et", "ru"]
 ```
 
-Adding `"et"` and `"ru"` brings back `/et/` and `/ru/`, the EN·ET·RU toggle in
-the top bar and the phone menu, and the `hreflang` tags. Before that,
-`content/et.json` and `content/ru.json` have to be rewritten to the shape of
-`content/en.json`: they still hold the text and the sections of the old design,
-and the build fails on them as they are.
+All three languages are built. A text changed in `content/en.json` has to be
+changed in `content/et.json` and `content/ru.json` too, or those pages keep the
+old wording. Taking a language out of `BUILD` removes its pages, its entry in
+the EN·ET·RU toggle and its `hreflang` tag.
 
 ## Rules for the text
 
