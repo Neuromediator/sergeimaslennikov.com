@@ -166,6 +166,22 @@
     "title": "Проекты",
     "items": [
       {
+        "when": "Сент — окт 2026",
+        "name": "Avatar",
+        "body": "Цифровой двойник по принципу «human-in-the-loop»: чат, где посетители разговаривают с AI-версией меня. Он отвечает по моему профилю и FAQ, стримит ответы и присылает уведомление мне на телефон, когда вопрос требует моего участия. Через админ-панель я могу подключиться к любому разговору, и тогда получается трёхсторонний чат между посетителем, AI и мной. Построено на OpenAI Agents SDK, с бэкендом на FastAPI, Supabase и фронтендом на Vite/TypeScript. Развёрнуто на Fly.io через GitHub Actions и встроено в мой личный сайт.",
+        "caveat": "",
+        "tags": [
+          "OpenAI Agents SDK",
+          "FastAPI",
+          "Supabase",
+          "Vite / TypeScript",
+          "Fly.io",
+          "GitHub Actions"
+        ],
+        "live": "https://sergeimaslennikov.com/avatar/",
+        "code": "https://github.com/Neuromediator/avatar"
+      },
+      {
         "when": "Авг 2026",
         "name": "Autonomous Trading Floor",
         "body": "Симуляция торговли акциями, где четыре автономных LLM-агента управляют виртуальными портфелями: исследуют рынок, совершают сделки и переписывают собственные стратегии по итогам того, как сработали их прошлые сделки. Построено на Model Context Protocol и OpenAI Agents SDK, с бэкендом на FastAPI и дашбордом на Vite/TypeScript.",
@@ -186,7 +202,9 @@
         "caveat": "",
         "tags": [
           "CrewAI",
-          "Python"
+          "Python",
+          "Gradio",
+          "HF Spaces"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
         "code": "https://github.com/Neuromediator/engineering-team"
@@ -198,7 +216,12 @@
         "caveat": "Не инструмент для ставок",
         "tags": [
           "LightGBM",
-          "Python"
+          "Python",
+          "Streamlit",
+          "HF Spaces",
+          "Tavily",
+          "Docker",
+          "DuckDB"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
         "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
@@ -212,7 +235,11 @@
           "Python",
           "Supabase",
           "TypeScript",
-          "LLMs"
+          "LLMs",
+          "SQLite",
+          "Tailwind CSS",
+          "Vite",
+          "OpenRouter"
         ],
         "live": "https://myfitnesspal.online/",
         "code": "https://github.com/Neuromediator/workout-tracker"
@@ -262,8 +289,8 @@
         "def": "20 лет, почти каждый день. Зал, HIIT, CrossFit."
       },
       {
-        "term": "Питание",
-        "def": "Не курю, нулевая толерантность к алкоголю, из сладкого ем только фрукты."
+        "term": "Диета",
+        "def": "Нулевая толерантность к алкоголю, из сладкого ем только фрукты."
       },
       {
         "term": "Отдых",

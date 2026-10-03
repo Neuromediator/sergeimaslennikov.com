@@ -167,6 +167,22 @@
     "title": "Projektid",
     "items": [
       {
+        "when": "Sept — okt 2026",
+        "name": "Avatar",
+        "body": "Digitaalne teisik „human-in-the-loop“ põhimõttel: vestlus, milles külastajad räägivad minu AI-versiooniga. See vastab minu profiili ja KKK põhjal, striimib oma vastuseid ja saadab mu telefoni teavituse, kui küsimus vajab mind. Admin-dashboardi kaudu saan liituda iga vestlusega, nii et sellest saab kolmepoolne vestlus külastaja, AI ja minu vahel. Ehitatud OpenAI Agents SDK, FastAPI backendi, Supabase’i ja Vite/TypeScripti frontendiga. See on juurutatud Fly.io-sse GitHub Actionsi kaudu ja manustatud minu isiklikule veebilehele.",
+        "caveat": "",
+        "tags": [
+          "OpenAI Agents SDK",
+          "FastAPI",
+          "Supabase",
+          "Vite / TypeScript",
+          "Fly.io",
+          "GitHub Actions"
+        ],
+        "live": "https://sergeimaslennikov.com/avatar/",
+        "code": "https://github.com/Neuromediator/avatar"
+      },
+      {
         "when": "Aug 2026",
         "name": "Autonomous Trading Floor",
         "body": "Aktsiakaubanduse simulatsioon, kus neli autonoomset LLM-agenti haldavad virtuaalseid portfelle: uurivad turgu, teevad tehinguid ja kirjutavad oma strateegiad ümber selle põhjal, kuidas nende varasemad tehingud õnnestusid. Ehitatud Model Context Protocolile ja OpenAI Agents SDK-le, FastAPI backendi ja Vite/TypeScripti dashboardiga.",
@@ -187,7 +203,9 @@
         "caveat": "",
         "tags": [
           "CrewAI",
-          "Python"
+          "Python",
+          "Gradio",
+          "HF Spaces"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
         "code": "https://github.com/Neuromediator/engineering-team"
@@ -199,7 +217,12 @@
         "caveat": "Ei ole panustamistööriist",
         "tags": [
           "LightGBM",
-          "Python"
+          "Python",
+          "Streamlit",
+          "HF Spaces",
+          "Tavily",
+          "Docker",
+          "DuckDB"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
         "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
@@ -213,7 +236,11 @@
           "Python",
           "Supabase",
           "TypeScript",
-          "LLMs"
+          "LLMs",
+          "SQLite",
+          "Tailwind CSS",
+          "Vite",
+          "OpenRouter"
         ],
         "live": "https://myfitnesspal.online/",
         "code": "https://github.com/Neuromediator/workout-tracker"
@@ -232,7 +259,7 @@
         ]
       },
       {
-        "label": "aeg-ajalt",
+        "label": "kasutanud",
         "tools": [
           "codex",
           "opencode",
@@ -263,8 +290,8 @@
         "def": "20 aastat, peaaegu iga päev. Jõusaal, HIIT, CrossFit."
       },
       {
-        "term": "Toitumine",
-        "def": "Ei suitseta, nulltolerants alkoholi suhtes, magusast söön ainult puuvilju."
+        "term": "Dieet",
+        "def": "Nulltolerants alkoholi suhtes, magusast söön ainult puuvilju."
       },
       {
         "term": "Vaba aeg",

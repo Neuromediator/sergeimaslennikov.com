@@ -166,6 +166,22 @@
     "title": "Projects",
     "items": [
       {
+        "when": "Sep — Oct 2026",
+        "name": "Avatar",
+        "body": "A digital twin with a human in the loop: a chat where visitors talk to an AI version of me. It answers from my profile and FAQ, streams its replies, and sends a notification to my phone when a question needs me. From an admin dashboard I can join any conversation, which makes it a three-way chat between the visitor, the AI and me. Built with the OpenAI Agents SDK, a FastAPI backend, Supabase and a Vite/TypeScript frontend. It's deployed to Fly.io through GitHub Actions and embedded in my personal website.",
+        "caveat": "",
+        "tags": [
+          "OpenAI Agents SDK",
+          "FastAPI",
+          "Supabase",
+          "Vite / TypeScript",
+          "Fly.io",
+          "GitHub Actions"
+        ],
+        "live": "https://sergeimaslennikov.com/avatar/",
+        "code": "https://github.com/Neuromediator/avatar"
+      },
+      {
         "when": "Aug 2026",
         "name": "Autonomous Trading Floor",
         "body": "An equity trading simulation where four autonomous LLM agents manage virtual portfolios: researching the market, executing trades, and rewriting their own strategies based on how their past trades performed. Built on the Model Context Protocol and the OpenAI Agents SDK, with a FastAPI backend and a Vite/TypeScript dashboard.",
@@ -186,7 +202,9 @@
         "caveat": "",
         "tags": [
           "CrewAI",
-          "Python"
+          "Python",
+          "Gradio",
+          "HF Spaces"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/engineering-team",
         "code": "https://github.com/Neuromediator/engineering-team"
@@ -198,7 +216,12 @@
         "caveat": "Not a betting tool",
         "tags": [
           "LightGBM",
-          "Python"
+          "Python",
+          "Streamlit",
+          "HF Spaces",
+          "Tavily",
+          "Docker",
+          "DuckDB"
         ],
         "live": "https://huggingface.co/spaces/Neuromediator/tennis-research-dashboard",
         "code": "https://github.com/Neuromediator/Tennis-Match-Research-Dashboard"
@@ -212,7 +235,11 @@
           "Python",
           "Supabase",
           "TypeScript",
-          "LLMs"
+          "LLMs",
+          "SQLite",
+          "Tailwind CSS",
+          "Vite",
+          "OpenRouter"
         ],
         "live": "https://myfitnesspal.online/",
         "code": "https://github.com/Neuromediator/workout-tracker"
@@ -263,7 +290,7 @@
       },
       {
         "term": "Diet",
-        "def": "No smoking, zero tolerance for alcohol, nothing sweet other than fruit."
+        "def": "Zero tolerance for alcohol, nothing sweet other than fruit."
       },
       {
         "term": "Time off",
