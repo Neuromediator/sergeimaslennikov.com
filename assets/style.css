@@ -37,15 +37,16 @@
   --proj-pt: 32px;
   --term: clamp(11.5px, 3.4vw, 13px);
 }
+/* the second theme: a warm dark brown, not a white page */
 :root[data-theme="light"]{
-  --bg:          #e8e5dd;
-  --bg2:         #dfdbd1;
-  --ink:         #1a1a18;
-  --ink2:        #5d5a52;
-  --line:        rgba(26,26,24,.12);
-  --line-strong: rgba(26,26,24,.26);
-  --accent:      #5b6631;
-  --accent-ink:  #f3f1ea;
+  --bg:          #26241f;
+  --bg2:         #2e2b25;
+  --ink:         #dad6cd;
+  --ink2:        #aaa498;
+  --line:        rgba(218,214,205,.10);
+  --line-strong: rgba(218,214,205,.22);
+  --accent:      #9da263;
+  --accent-ink:  #26241f;
 }
 @media (min-width:1000px){
   :root{
